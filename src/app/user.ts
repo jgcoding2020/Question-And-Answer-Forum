@@ -1,9 +1,9 @@
 export class User {
     
     id: number = 0;
-    name: string = "";
-    username: string = "";
-    password: string = "";
     email: string = "";
+    name: string = "";
+    password: string = "";
     userType: string = "user";
+    username: string = "";
 }

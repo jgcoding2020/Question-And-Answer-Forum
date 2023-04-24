@@ -16,9 +16,9 @@ export class UserComponent implements OnInit {
 
     constructor(private userService: UserService){
         this.users = [];
-        this.currentUser = new User;
+        this.currentUser = new User();
         this.currentUserId = 0;
-        this.userForm = new User;
+        this.userForm = new User();
     }
 
     ngOnInit(): void {
@@ -36,6 +36,7 @@ export class UserComponent implements OnInit {
         this.currentUser.password = addUserForm.value.password;
         this.currentUser.email = addUserForm.value.email;
         this.currentUser.userType = "user"; // default setting as type user when account is created
+
         console.log(addUserForm.value);
 
         this.userService.addUser(this.currentUser).subscribe();
