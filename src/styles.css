@@ -47,24 +47,7 @@ input {
     right: 40%;
 } 
 
-.remove-button, .edit-button {
-    background-color: red;
-    border: none;
-    color: white;
-    padding: 8px;
-    border-radius: 4px;
-    opacity: .7;
-    width: 75px;
-}
-
-.edit-button {
-    background-color: rgb(52, 169, 52);
-    padding: 8px 10px;
-    margin: 5px 20px;
-    width: 50px;
-}
-
-.add-button, .reset-button, .update-button {
+.add-button, .reset-button {
     background-color: rgb(54, 54, 238);
     border: none;
     color: white;
@@ -79,8 +62,4 @@ input {
 
 .reset-button {
     background-color: rgb(198, 198, 94);
-}
-
-.update-button {
-    margin-right: 5px;
 }
