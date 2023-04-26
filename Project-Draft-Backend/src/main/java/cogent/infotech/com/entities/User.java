@@ -1,4 +1,4 @@
-package cogent.infotech.com.entity;
+package cogent.infotech.com.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,18 +7,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="users")
+//@Builder
+@Table(name = "users")
 public class User {
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
 	private String username;
@@ -27,7 +28,7 @@ public class User {
 	private String userType;
 	
 	public User(String name, String username, String password, String email, String userType) {
-		super();
+		
 		this.name = name;
 		this.username = username;
 		this.password = password;
