@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms'; 
 
-import { UserComponent } from './user.component';
 import { HomeComponent } from './home/home.component';
 import { UserLoginComponent } from './login/user-login.component';
 import { AdminLoginComponent } from './login/admin-login.component';
@@ -23,7 +22,7 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent, UserComponent, HomeComponent, 
+    AppComponent, HomeComponent, 
     UserLoginComponent, AdminLoginComponent, AdminSignUpComponent,
     CreateQuestionComponent, SearchQuestionComponent, CreatedQuestionComponent,
     PendingQuestionComponent, CreatedAnswerComponent, PendingAnswerComponent,
