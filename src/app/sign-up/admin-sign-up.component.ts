@@ -60,8 +60,11 @@ export class AdminSignUpComponent implements OnInit {
 
             if (this.currentAdmin.id != 0 && this.currentAdmin.userType == "admin")
                 this.toggleLink = true;
-            else
-                alert("Username and password is invalid for admin")
+            else {
+                this.toggleLink = false;
+                alert("Username and password is invalid for an admin")
+            }
+                
         })
     }
 

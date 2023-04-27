@@ -59,10 +59,13 @@ export class UserLoginComponent implements OnInit{
             this.currentUser = <User>data;
             console.log(this.currentUser);
 
-            if (this.currentUser.id != 0)
+            if (this.currentUser.id !=  0 && this.currentUser.userType == "user")
                 this.toggleLink = true;
-            else
-                alert("Username and password is invalid")
+            else {
+                this.toggleLink = false;
+                alert("Username and password is invalid for a user")
+            }
+                
         })
     }
 
