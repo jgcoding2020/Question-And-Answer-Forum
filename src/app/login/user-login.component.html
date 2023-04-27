@@ -1,0 +1,44 @@
+{{message}}
+<br>
+<!--This is the application registration form-->
+<form novalidate #registerUserForm="ngForm" (ngSubmit)="onSubmitAdd(registerUserForm)">
+    <h3><span>Sign Up Now</span></h3>
+    <table class="register-user-table">
+        <tr>
+            <td><label for="name">Name </label></td>
+            <td><input type="text" [(ngModel)]="registerForm.name" name="name" placeholder="Enter your name" required></td>
+        </tr>
+        <tr>
+            <td><label for="username">Username  </label></td>
+            <td><input type="text" [(ngModel)]="registerForm.username" name="username" placeholder="Enter your username" required></td>
+        </tr>
+        <tr>
+            <td><label for="salary">Password </label></td>
+            <td><input type="password" [(ngModel)]="registerForm.password" name="password" placeholder="Enter your password"
+                required></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email </label></td>
+            <td><input type="email" [(ngModel)]="registerForm.email" name="email" placeholder="Enter your email address"
+                required></td>
+        </tr>
+        <button class="register-user-button" [disabled]="registerUserForm.invalid" (click)="refresh()" type="submit">Sign Up</button>
+    </table>
+</form>
+
+<!--This is the user login form-->
+<form novalidate #userLoginForm="ngForm" (ngSubmit)="onSubmitLogin(userLoginForm)">
+    <h3><span>Login Now!</span></h3>
+    <table class="login-user-table">
+        <tr>
+            <td><label for="username">Username  </label></td>
+            <td><input type="text" [(ngModel)]="loginForm.username" name="username" placeholder="Enter your username" required></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password </label></td>
+            <td><input type="password" [(ngModel)]="loginForm.password" name="password" placeholder="Enter your password"
+                required></td>
+        </tr>
+        <button class="login-button" [disabled]="userLoginForm.invalid" type="submit">Login</button>
+    </table>
+</form>
