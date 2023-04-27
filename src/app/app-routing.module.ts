@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { UserLoginComponent } from './login/user-login.component';
+import { UserHomeComponent } from './home/user-home.component';
+import { AdminHomeComponent } from './home/admin-home.component';
 import { AdminLoginComponent } from './login/admin-login.component';
 import { AdminSignUpComponent } from './sign-up/admin-sign-up.component';
 import { CreateQuestionComponent } from './question/create-question.component';
@@ -19,6 +21,8 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
+    {path: 'user-home', component: UserHomeComponent},
+    {path: 'admin-home', component: AdminHomeComponent},
     {path: 'user-login', component: UserLoginComponent},
     {path: 'admin-login', component: AdminLoginComponent},
     {path: 'admin-sign-up', component: AdminSignUpComponent},

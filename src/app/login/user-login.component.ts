@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { User } from "./user";
 import { UserService } from "./user-service";
-import { Router } from '@angular/router';
+import { Login } from "./login";
 
 @Component({
     selector: 'user-login',
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./user-login.component.css']
 })
 
+// this component adds new users to the database and logs them in as well
 export class UserLoginComponent implements OnInit{
 
     message: string = "This is user-login";
@@ -17,14 +18,14 @@ export class UserLoginComponent implements OnInit{
     currentUser: User;
     currentUserId: number;
     registerForm: User;
-    loginForm: User;
+    loginForm: Login;
 
-    constructor(private userService: UserService, private router: Router){
+    constructor(private userService: UserService){
         this.users = [];
         this.currentUser = new User();
         this.currentUserId = 0;
         this.registerForm = new User();
-        this.loginForm = new User();
+        this.loginForm = new Login();
     }
 
     ngOnInit(): void {
@@ -50,11 +51,13 @@ export class UserLoginComponent implements OnInit{
 
     onSubmitLogin(userLoginForm: any){
 
-        for (let i = 0; i < this.users.length; i++){
-            if (userLoginForm.value.name == this.users[i].name && userLoginForm.value.name == this.users[i].password){
-                this.currentUser = this.users[i];
-            }
-        }
+        this.loginForm.username = userLoginForm.value.username;
+        this.loginForm.password = userLoginForm.value.password;
+
+        this.userService.loginUser(this.loginForm).subscribe((data: Login) => {
+            this.currentUser = <User>data;
+            console.log(this.currentUser);
+        })
     }
 
     refresh()

@@ -1,5 +1,6 @@
 {{message}}
 <br>
+<!--This is the application registration form-->
 <form novalidate #registerUserForm="ngForm" (ngSubmit)="onSubmitAdd(registerUserForm)">
     <h3><span>Sign Up Now</span></h3>
     <table class="register-user-table">
@@ -25,6 +26,7 @@
     </table>
 </form>
 
+<!--This is the user login form-->
 <form novalidate #userLoginForm="ngForm" (ngSubmit)="onSubmitLogin(userLoginForm)">
     <h3><span>Login Now!</span></h3>
     <table class="login-user-table">
@@ -33,10 +35,10 @@
             <td><input type="text" [(ngModel)]="loginForm.username" name="username" placeholder="Enter your username" required></td>
         </tr>
         <tr>
-            <td><label for="salary">Password </label></td>
+            <td><label for="password">Password </label></td>
             <td><input type="password" [(ngModel)]="loginForm.password" name="password" placeholder="Enter your password"
                 required></td>
         </tr>
-        <button class="login-button" [disabled]="userLoginForm.invalid" [routerLink]="['/home']" type="submit">Login</button>
+        <button class="login-button" [disabled]="userLoginForm.invalid" type="submit">Login</button>
     </table>
 </form>
