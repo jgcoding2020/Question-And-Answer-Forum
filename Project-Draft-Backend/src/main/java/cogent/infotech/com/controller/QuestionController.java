@@ -28,20 +28,26 @@ public class QuestionController {
 	@Autowired
 	private QuestionRepository repo;
 	
+	// This method needs to initialize
 	@PostMapping("/addquestion")
 	public Question addQuestion(@RequestBody Question q) {
 		return this.repo.save(q);
 	}
 	
+//	@GetMapping("/getquestionbyid")
+//	public Optional<Question> getQuestionById(@RequestParam(name = "id") Integer id){
+//		return this.repo.findById(id);
+//	}
 	@GetMapping("/getquestionbyid")
-	public Optional<Question> getQuestionById(@RequestParam(name = "id") Integer id){
-		return this.repo.findById(id);
+	public Question getQuestionById(@RequestParam(name = "id") Integer id){
+		return this.repo.findById(id).get();
 	}
 	
 	@PutMapping("/updatequestion")
 	public Question updateQuestion(@RequestBody Question updates, @RequestParam(name = "id") Integer id) {
-		Optional <Question> toUpdate = getQuestionById(id);
-		Question updated = toUpdate.get();
+//		Optional <Question> toUpdate = getQuestionById(id);
+//		Question updated = toUpdate.get();
+		Question updated = getQuestionById(id);
 		
 		if(updates.getTitle() != null) {
 			updated.setTitle(updates.getTitle());
@@ -72,8 +78,10 @@ public class QuestionController {
 	
 	@DeleteMapping("/deletequestionbyid")
 	public String deleteQuestionById(@RequestParam(name = "id") Integer id) {
-		Optional<Question> toDelete = getQuestionById(id);
-		repo.delete(toDelete.get());
+//		Optional<Question> toDelete = getQuestionById(id);
+//		repo.delete(toDelete.get());
+		Question toDelete = getQuestionById(id);
+		repo.delete(toDelete);
 		return "Question succesfully deleted";
 	}
 	

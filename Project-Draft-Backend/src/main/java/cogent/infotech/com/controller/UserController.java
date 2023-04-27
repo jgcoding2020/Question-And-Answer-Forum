@@ -50,9 +50,14 @@ public class UserController {
 		return repo.findAll();
 	}
 	
+//	@GetMapping("/getuserbyId")
+//	public Optional<User> getUserById(@RequestParam(value = "id") Integer id) {
+//		return repo.findById(id);
+//	}
+	
 	@GetMapping("/getuserbyId")
-	public Optional<User> getUserById(@RequestParam(value = "id") Integer id) {
-		return repo.findById(id);
+	public User getUserById(@RequestParam(value = "id") Integer id) {
+		return repo.findById(id).get();
 	}
 	
 	/**
@@ -60,7 +65,7 @@ public class UserController {
 	 * @param login
 	 * @return a single user object based on the passed Login username and password
 	 */
-	@GetMapping("/getLogin")
+	@PostMapping("/getLogin")
 	public User getLogin(@RequestBody LoginDTO login) {
 		List<User> userList = repo.findAll();
 		Iterator<User> list = userList.listIterator();
@@ -120,10 +125,11 @@ public class UserController {
 	 * @return User object with updated information
 	 */
 	@PutMapping("/updateuser")
-	public User updateUser(@RequestBody User user, @RequestParam Integer id) {
-		Optional<User> userOptional = getUserById(id);
-		User updatedUser = userOptional.get();
-
+	public User updateUser(@RequestBody User updates, @RequestParam Integer id) {
+		//Optional<User> userOptional = getUserById(id);
+		//User updatedUser = userOptional.get();
+		User updated = getUserById(id);
+		
 		// This may look not very pretty, but it works, so I'm doing it this way
 		// Basically a series of if-statements
 		// Each if, verifies if an attribute of User was entered in the body or not
@@ -131,23 +137,23 @@ public class UserController {
 		// If anybody knows a different way, please let me know
 		//
 		// --Juan David
-		if(user.getName() != null) {
-			updatedUser.setName(user.getName());
+		if(updates.getName() != null) {
+			updated.setName(updates.getName());
 		}
-		if(user.getUsername()!= null) {
-			updatedUser.setUsername(user.getUsername());
+		if(updates.getUsername()!= null) {
+			updated.setUsername(updates.getUsername());
 		}
-		if(user.getPassword() != null) {
-			updatedUser.setPassword(user.getPassword());
+		if(updates.getPassword() != null) {
+			updated.setPassword(updates.getPassword());
 		}
-		if(user.getEmail() != null) {
-			updatedUser.setEmail(user.getEmail());
+		if(updates.getEmail() != null) {
+			updated.setEmail(updates.getEmail());
 		}
-		if(user.getUserType() != null) {
-			updatedUser.setUserType(user.getUserType());
+		if(updates.getUserType() != null) {
+			updated.setUserType(updates.getUserType());
 		}
 		
-		return repo.save(updatedUser);
+		return repo.save(updated);
 	}
 	
 	@GetMapping("/getbyallusertype")
