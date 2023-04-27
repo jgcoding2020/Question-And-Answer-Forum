@@ -7,6 +7,7 @@ import java.util.ListIterator;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,9 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import cogent.infotech.com.dto.LoginDTO;
 import cogent.infotech.com.entities.User;
 import cogent.infotech.com.repositories.UserRepository;
+import cogent.infotech.com.security.Constants;
 
+@CrossOrigin(Constants.ORIGINS)
 @RestController
-@RequestMapping("api/user")
+@RequestMapping(Constants.BASEURL + "/user")
 public class UserController {
 	@Autowired
 	UserRepository repo;
