@@ -10,9 +10,7 @@ import { Login } from "./login";
 })
 
 export class AdminSignUpComponent implements OnInit {
-
-    message: string = "This is admin-sign-up";
-
+    
     admins: Admin[];
     currentAdmin: Admin;
     currentAdminId: number;

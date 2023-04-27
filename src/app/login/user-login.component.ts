@@ -12,8 +12,6 @@ import { Login } from "./login";
 // this component adds new users to the database and logs them in as well
 export class UserLoginComponent implements OnInit{
 
-    message: string = "This is user-login";
-
     users: User[];
     currentUser: User;
     currentUserId: number;

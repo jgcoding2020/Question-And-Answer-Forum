@@ -8,5 +8,13 @@ import { Component } from "@angular/core";
 
 export class HomeComponent {
 
-    message: string = "This is home";
+    message: string = "This is application home page";
+
+    goUser():string{
+        return "/user-login";
+    }
+
+    goAdmin():string{
+        return "/admin-sign-up";
+    }
 }

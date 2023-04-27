@@ -1,3 +1,38 @@
+nav {
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 5px;
+    width: 95%;
+    margin: auto;
+    background-color: white;
+}
+
+strong {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+form {
+    display: inline-block;
+}
+
+.login-user-form {
+    margin-left: 10%;
+}
+
+thead {
+    padding: 5px;
+}
+
+th {
+    font-size: x-large;
+    text-align: center;
+}
 /* h3 {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;

@@ -1,0 +1,22 @@
+nav {
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 5px;
+    width: 95%;
+    margin: auto;
+    background-color: white;
+}
+
+strong {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.user-button {
+    margin-right: 5px;
+    margin-left: 25%;
+}
+
+.admin-button {
+    margin-right: 5px;
+}
