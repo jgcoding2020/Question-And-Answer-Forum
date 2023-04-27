@@ -1,0 +1,35 @@
+{
+	"description_question":"This is the description of the question",
+	"image_src":"this is an image",
+	"datetime":"today's date",
+	"status":"answered",
+	"topic":"question topic",
+	"title":"How do I Ask a Quesiton?",
+	"answers":null,
+	"qcreated_by":"Juandi",
+	"qapproved_by":"moderators"
+}
+
+{
+	"description_question":"Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+	"image_src":"sed do eiusmod",
+	"datetime":"4/27/2023",
+	"status":"answered",
+	"topic":"Blandit turpis",
+	"title":"Erat imperdiet sed euismod nisi porta ?",
+	"answers":null,
+	"qcreated_by":"Juandi",
+	"qapproved_by":"moderators"
+}
+
+{
+	"description_question":"Questa e la descrizzone della domanda",
+	"image_src":"Questa e l'imagine",
+	"datetime":"27/4/2023",
+	"status":"answered",
+	"topic":"il sogetto della domanda",
+	"title":"Come si fa una domanda qui?",
+	"answers":null,
+	"qcreated_by":"Juandi",
+	"qapproved_by":"moderators"
+}
