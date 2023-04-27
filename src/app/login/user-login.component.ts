@@ -19,6 +19,8 @@ export class UserLoginComponent implements OnInit{
     currentUserId: number;
     registerForm: User;
     loginForm: Login;
+    link: string = "/user-home";
+    toggleLink = false;
 
     constructor(private userService: UserService){
         this.users = [];
@@ -51,13 +53,23 @@ export class UserLoginComponent implements OnInit{
 
     onSubmitLogin(userLoginForm: any){
 
+        this.currentUser.id = 0;
         this.loginForm.username = userLoginForm.value.username;
         this.loginForm.password = userLoginForm.value.password;
 
         this.userService.loginUser(this.loginForm).subscribe((data: Login) => {
             this.currentUser = <User>data;
             console.log(this.currentUser);
+
+            if (this.currentUser.id != 0)
+                this.toggleLink = true;
+            else
+                alert("Username and password is invalid")
         })
+    }
+
+    go(): string {
+        return this.link;
     }
 
     refresh()

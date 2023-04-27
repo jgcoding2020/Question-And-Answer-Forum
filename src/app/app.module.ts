@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms'; 
 
 import { HomeComponent } from './home/home.component';
-import { AdminLoginComponent } from './login/admin-login.component';
 import { UserLoginComponent } from './login/user-login.component';
 import { UserHomeComponent } from './home/user-home.component';
 import { AdminHomeComponent } from './home/admin-home.component';
@@ -25,7 +24,7 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, UserHomeComponent, AdminHomeComponent,
-    UserLoginComponent, AdminLoginComponent, AdminSignUpComponent,
+    UserLoginComponent, AdminSignUpComponent,
     CreateQuestionComponent, SearchQuestionComponent, CreatedQuestionComponent,
     PendingQuestionComponent, CreatedAnswerComponent, PendingAnswerComponent,
     ApprovedAnswerComponent, ChatComponent, UserToUserChatComponent, NoPageFoundComponent
@@ -34,7 +33,7 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

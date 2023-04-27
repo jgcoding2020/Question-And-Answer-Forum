@@ -1,6 +1,6 @@
 {{message}}
 <br>
-<!--This is the application registration form-->
+<!--This is the application registration form for users-->
 <form novalidate #registerUserForm="ngForm" (ngSubmit)="onSubmitAdd(registerUserForm)">
     <h3><span>Sign Up Now</span></h3>
     <table class="register-user-table">
@@ -40,5 +40,7 @@
                 required></td>
         </tr>
         <button class="login-button" [disabled]="userLoginForm.invalid" type="submit">Login</button>
+        <br>
+        <button *ngIf="toggleLink" [routerLink]="go()">Your home page</button>
     </table>
 </form>
