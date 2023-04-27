@@ -33,9 +33,9 @@ public class Question {
 	private String status;
 	private String topic;
 	private String title;
-	//@OneToMany(mappedBy="question", fetch = FetchType.EAGER)
-	//@JsonIgnore
-	//private List<Answer> answers;
+	@OneToMany(mappedBy="question", fetch = FetchType.EAGER)
+	@JsonIgnore
+	private List<Answer> answers;
 	
 	// These last two fileds maybe should 
 	//OnetoOne
@@ -51,7 +51,7 @@ public class Question {
 		this.status = status;
 		this.topic = topic;
 		this.title = title; //
-		//this.answers = answers;
+		this.answers = answers;
 		this.qcreated_by = qcreated_by;
 		this.qapproved_by = qapproved_by;
 	}

@@ -53,9 +53,9 @@ public class AnswerController {
 		if(updates.getStatus() != null) {
 			updated.setStatus(updates.getStatus());
 		}
-		if(updates.getQuestion() != null) {
-			updated.setQuestion(updates.getQuestion());
-		}
+//		if(updates.getQuestion() != null) {
+//			updated.setQuestion(updates.getQuestion());
+//		}
 		if(updates.getApproved_by() != null) {
 			updated.setApproved_by(updates.getApproved_by());
 		}
@@ -79,19 +79,19 @@ public class AnswerController {
 		return "";
 	}
 	
-	@GetMapping("answers/question")
-	public List<Answer> getAnswerByQuestionId(@RequestParam Integer questionId){
-		Iterator<Answer> all = getAllAnswers().iterator();
-		List<Answer> answersOfQuestion = new ArrayList<Answer>();
-		while(all.hasNext()) {
-			Answer currentAnswer = all.next();
-			if(currentAnswer.getQuestion().getId() == questionId) {
-				answersOfQuestion.add(currentAnswer);
-			}
-		}
-		
-		return answersOfQuestion;
-	}
+//	@GetMapping("answers/question")
+//	public List<Answer> getAnswerByQuestionId(@RequestParam Integer questionId){
+//		Iterator<Answer> all = getAllAnswers().iterator();
+//		List<Answer> answersOfQuestion = new ArrayList<Answer>();
+//		while(all.hasNext()) {
+//			Answer currentAnswer = all.next();
+//			if(currentAnswer.getQuestion().getId() == questionId) {
+//				answersOfQuestion.add(currentAnswer);
+//			}
+//		}
+//		
+//		return answersOfQuestion;
+//	}
 	
 	
 	
