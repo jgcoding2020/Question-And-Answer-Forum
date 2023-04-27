@@ -21,7 +21,7 @@ export class AdminSignUpComponent implements OnInit {
     link: string = "/admin-home";
     toggleLink = false;
 
-    constructor(private adminservice: AdminService){
+    constructor(private adminService: AdminService){
         this.admins = [];
         this.currentAdmin = new Admin();
         this.currentAdminId = 0;
@@ -30,7 +30,7 @@ export class AdminSignUpComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.adminservice.getAdmins().subscribe((data: Admin[])=>{
+        this.adminService.getAdmins().subscribe((data: Admin[])=>{
             console.log(data);
             this.admins = data;
         })
@@ -43,11 +43,11 @@ export class AdminSignUpComponent implements OnInit {
         this.currentAdmin.username = addUserForm.value.username;
         this.currentAdmin.password = addUserForm.value.password;
         this.currentAdmin.email = addUserForm.value.email;
-        this.currentAdmin.userType = "user"; // default setting as type user when account is created
+        this.currentAdmin.userType = "admin"; // default setting as type user when account is created
 
         console.log(addUserForm.value);
 
-        this.adminservice.addAdmin(this.currentAdmin).subscribe();
+        this.adminService.addAdmin(this.currentAdmin).subscribe();
     }
 
     onSubmitLogin(userLoginForm: any){
@@ -56,14 +56,14 @@ export class AdminSignUpComponent implements OnInit {
         this.loginForm.username = userLoginForm.value.username;
         this.loginForm.password = userLoginForm.value.password;
 
-        this.adminservice.loginAdmin(this.loginForm).subscribe((data: Login) => {
+        this.adminService.loginAdmin(this.loginForm).subscribe((data: Login) => {
             this.currentAdmin = <Admin>data;
             console.log(this.currentAdmin);
 
-            if (this.currentAdmin.id != 0)
+            if (this.currentAdmin.id != 0 && this.currentAdmin.userType == "admin")
                 this.toggleLink = true;
             else
-                alert("Username and password is invalid")
+                alert("Username and password is invalid for admin")
         })
     }
 
