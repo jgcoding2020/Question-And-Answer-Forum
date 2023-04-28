@@ -1,5 +1,6 @@
 <nav>
     <strong>Do Connect User</strong>
+    <button class="home-button" [routerLink]="'/home'">Home</button>
 </nav>
 <!--This is the application registration form for users-->
 <div class="container">
@@ -51,7 +52,7 @@
             </tr>
             <button class="login-button" [disabled]="userLoginForm.invalid" type="submit">Login</button>
             <br>
-            <button *ngIf="toggleLink" [routerLink]="go()">Your home page</button>
+            <button *ngIf="toggleLink" (click)="passDataOnRoute()" [routerLink]="go()">Your home page</button>
         </table>
     </form>
 </div>

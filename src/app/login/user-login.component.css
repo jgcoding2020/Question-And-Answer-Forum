@@ -1,15 +1,21 @@
 nav {
-    border: 1px solid;
     border-radius: 3px;
     padding: 5px;
     width: 95%;
     margin: auto;
     background-color: white;
+    box-shadow: 2px 2px 4px #000000;
 }
 
 strong {
     display: inline-block;
     font-size: 20px;
+}
+
+.home-button {
+    float: right;
+    margin: 5px 5%;
+    border: none;
 }
 
 .container {

@@ -24,10 +24,10 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, UserHomeComponent, AdminHomeComponent,
-    UserLoginComponent, AdminSignUpComponent,
-    CreateQuestionComponent, SearchQuestionComponent, CreatedQuestionComponent,
-    PendingQuestionComponent, CreatedAnswerComponent, PendingAnswerComponent,
-    ApprovedAnswerComponent, ChatComponent, UserToUserChatComponent, NoPageFoundComponent
+    UserLoginComponent, AdminSignUpComponent, CreateQuestionComponent, 
+    SearchQuestionComponent, CreatedQuestionComponent, PendingQuestionComponent, 
+    CreatedAnswerComponent, PendingAnswerComponent, ApprovedAnswerComponent, 
+    ChatComponent, UserToUserChatComponent, NoPageFoundComponent
   ],
   imports: [
     BrowserModule,

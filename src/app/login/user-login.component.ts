@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { UserService } from "./user.service";
 import { User } from "./user";
-import { UserService } from "./user-service";
 import { Login } from "./login";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'user-login',
@@ -20,7 +21,7 @@ export class UserLoginComponent implements OnInit{
     link: string = "/user-home";
     toggleLink = false;
 
-    constructor(private userService: UserService){
+    constructor(private router: Router, private userService: UserService){
         this.users = [];
         this.currentUser = new User();
         this.currentUserId = 0;
@@ -71,6 +72,11 @@ export class UserLoginComponent implements OnInit{
 
     go(): string {
         return this.link;
+    }
+
+    passDataOnRoute(){
+        console.log(typeof this.currentUser.id);
+        this.router.navigate(['user-home', {p1: this.currentUser.id}]);
     }
 
     refresh()

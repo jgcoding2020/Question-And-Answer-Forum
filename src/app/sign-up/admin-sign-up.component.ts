@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Admin } from "./admin";
-import { AdminService } from "./admin-service";
+import { AdminService } from "./admin.service";
 import { Login } from "./login";
 
 @Component({

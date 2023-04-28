@@ -18,22 +18,40 @@ import { UserToUserChatComponent } from './chat/user-to-user-chat.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 
 const routes: Routes = [
-    {path: '', redirectTo: '/home', pathMatch: 'full'},
-    {path: 'home', component: HomeComponent},
-    {path: 'user-home', component: UserHomeComponent},
-    {path: 'admin-home', component: AdminHomeComponent},
-    {path: 'user-login', component: UserLoginComponent},
-    {path: 'admin-sign-up', component: AdminSignUpComponent},
-    {path: 'create-question', component: CreateQuestionComponent},
-    {path: 'search-question', component: SearchQuestionComponent},
-    {path: 'created-question', component: CreatedQuestionComponent},
-    {path: 'pending-question', component: PendingQuestionComponent},
-    {path: 'created-answer', component: CreatedAnswerComponent},
-    {path: 'pending-answer', component: PendingAnswerComponent},
-    {path: 'approved-answer', component: ApprovedAnswerComponent},
-    {path: 'chat', component: ChatComponent},
-    {path: 'user-to-user-chat', component: UserToUserChatComponent},
-    {path: '**', component: NoPageFoundComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'user-home', component: UserHomeComponent},
+  {path: 'admin-home', component: AdminHomeComponent},
+  {path: 'user-login', component: UserLoginComponent},
+  {path: 'admin-sign-up', component: AdminSignUpComponent},
+  {path: 'create-question', component: CreateQuestionComponent},
+  {path: 'search-question', component: SearchQuestionComponent},
+  {path: 'created-question', component: CreatedQuestionComponent},
+  {path: 'pending-question', component: PendingQuestionComponent},
+  {path: 'created-answer', component: CreatedAnswerComponent},
+  {path: 'pending-answer', component: PendingAnswerComponent},
+  {path: 'approved-answer', component: ApprovedAnswerComponent},
+  {path: 'chat', component: ChatComponent},
+  {path: 'user-to-user-chat', component: UserToUserChatComponent},
+  {path: '**', component: NoPageFoundComponent},
+    
+  /* {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent, 
+    children: [
+      {path: 'user-login', component: UserLoginComponent, 
+        children: [
+          {path: 'create-question', component: CreateQuestionComponent}, 
+          {path: 'search-question', component: SearchQuestionComponent}, 
+          {path: 'chat', component: ChatComponent},
+        ]
+      }, 
+      {path: 'admin-sign-up', component: AdminSignUpComponent, 
+        children: [
+          {path: 'pending-question', component: PendingQuestionComponent},
+          {path: 'pending-answer', component: PendingAnswerComponent},
+      ]}, 
+    ]
+  } */
 ]
 
 @NgModule({
