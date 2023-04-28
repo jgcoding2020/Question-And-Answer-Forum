@@ -37,23 +37,24 @@ public class Question {
 	@JsonIgnore
 	private List<Answer> answers;
 	
-	// These last two fileds maybe should 
+	// These last two fields maybe should be of type User instead of String
+	// Considering both of these fields come from User db anyway
 	//OnetoOne
 	private String qcreated_by;
 	//OneToOne
 	private String qapproved_by;
-	public Question(String description_question, String image_src, String datetime, String status, String topic,
-			String title, List<Answer> answers, String qcreated_by, String qapproved_by) {
+	public Question(String description_question, String image_src, String datetime, String topic,
+			String title, String qcreated_by) {
 		
 		this.description_question = description_question; //
 		this.image_src = image_src;//
 		this.datetime = datetime;//
-		this.status = status;
+		this.status = "Pending for approval";
 		this.topic = topic;
 		this.title = title; //
-		this.answers = answers;
+		this.answers = null;
 		this.qcreated_by = qcreated_by;
-		this.qapproved_by = qapproved_by;
+		this.qapproved_by = null;
 	}
 
 	

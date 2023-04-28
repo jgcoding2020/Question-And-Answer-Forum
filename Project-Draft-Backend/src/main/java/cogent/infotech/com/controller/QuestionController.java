@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import cogent.infotech.com.dto.QuestionDTO;
+import cogent.infotech.com.dto.StatusDTO;
 import cogent.infotech.com.entities.Question;
 import cogent.infotech.com.repositories.QuestionRepository;
 import cogent.infotech.com.security.Constants;
@@ -29,10 +31,23 @@ public class QuestionController {
 	private QuestionRepository repo;
 	
 	// This method needs to initialize
+	// From angular:
+	/* httpclient.post<>(url,
+	 * 		body(
+	 * 			description_question, 
+	 * 			image_src, 
+	 * 			datetime,
+	 *  		topic, 
+	 *  		title, 
+	 *  		)
+	 *  )
+	 *  */
 	@PostMapping("/addquestion")
-	public Question addQuestion(@RequestBody Question q) {
-		return this.repo.save(q);
+	public Question addQuestion(@RequestBody QuestionDTO q) {
+		Question newQuestion = new Question(q.getDescription_question(), q.getImage_src(), q.getDatetime(), q.getTopic(), q.getTitle(), UserController.session.getUsername());
+		return this.repo.save(newQuestion);
 	}
+	
 	
 //	@GetMapping("/getquestionbyid")
 //	public Optional<Question> getQuestionById(@RequestParam(name = "id") Integer id){
@@ -44,36 +59,56 @@ public class QuestionController {
 	}
 	
 	@PutMapping("/updatequestion")
-	public Question updateQuestion(@RequestBody Question updates, @RequestParam(name = "id") Integer id) {
+	public Question updateQuestion(@RequestBody QuestionDTO updates, @RequestParam(name = "id") Integer id) {
 //		Optional <Question> toUpdate = getQuestionById(id);
 //		Question updated = toUpdate.get();
-		Question updated = getQuestionById(id);
+		Question toUpdate = getQuestionById(id);
 		
-		if(updates.getTitle() != null) {
-			updated.setTitle(updates.getTitle());
+		//If the current logged in username matches the username of the question's creator
+		// Then quesiton will be able to be updated
+		// Otherwise no updates shall be put here
+		if(toUpdate.getQcreated_by().equals(UserController.session.getUsername())) {
+			if(updates.getTitle() != null) {
+				toUpdate.setTitle(updates.getTitle());
+			}
+			if(updates.getDescription_question() != null) {
+				toUpdate.setDescription_question(updates.getDescription_question());
+			}
+			if(updates.getImage_src()!= null) {
+				toUpdate.setImage_src(updates.getImage_src());
+			}
+			if(updates.getDatetime() != null) {
+				toUpdate.setDatetime(updates.getDatetime());
+			}
+			if(updates.getTopic() != null) {
+				toUpdate.setTopic(updates.getTopic());
+			}
+//			if(updates.getQcreated_by() != null) {
+//				updated.setQcreated_by(updates.getQcreated_by());
+//			}
+//			if(updates.getQapproved_by() != null) {
+//				updated.setQapproved_by(updates.getQapproved_by());
+//			}
+//			if(updates.getAnswers() != null) {
+//				updated.setAnswers(updates.getAnswers());
+//			}
 		}
-		if(updates.getDescription_question() != null) {
-			updated.setDescription_question(updates.getDescription_question());
+		return this.repo.save(toUpdate);
+	}
+	
+	@PutMapping("/approve")
+	public Question changeStatus(@RequestBody StatusDTO statusdto, @RequestParam(name = "id") Integer id) {
+		Question toApprove = getQuestionById(id);
+		
+		// If the current logged in user is an admin
+		// Then user may change question's status attribute
+		// Otherwise no changes will occur
+		if(UserController.session.getUserType().equals("admin")) {
+			toApprove.setStatus(statusdto.getStatus());
+			toApprove.setQapproved_by(UserController.session.getUsername());
 		}
-		if(updates.getImage_src()!= null) {
-			updated.setImage_src(updates.getImage_src());
-		}
-		if(updates.getDatetime() != null) {
-			updated.setDatetime(updates.getDatetime());
-		}
-		if(updates.getTopic() != null) {
-			updated.setTopic(updates.getTopic());
-		}
-		if(updates.getQcreated_by() != null) {
-			updated.setQcreated_by(updates.getQcreated_by());
-		}
-		if(updates.getQapproved_by() != null) {
-			updated.setQapproved_by(updates.getQapproved_by());
-		}
-//		if(updates.getAnswers() != null) {
-//			updated.setAnswers(updates.getAnswers());
-//		}
-		return this.repo.save(updates);
+		
+		return this.repo.save(toApprove);
 	}
 	
 	@DeleteMapping("/deletequestionbyid")
@@ -104,6 +139,10 @@ public class QuestionController {
 			}
 		}
 		return questionsByTopic;
+	}
+	
+	public void searchQuestion(@RequestParam(name = "search") String search) {
+		
 	}
 	
 	// No clue what this method is meant to do
