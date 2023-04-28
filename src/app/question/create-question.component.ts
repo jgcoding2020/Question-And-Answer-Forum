@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Question } from "./question";
 import { QuestionService } from "./question.service";
+import { QuestionDTO } from "./questionDTO";
 
 @Component({
     selector: 'create-question',
@@ -16,11 +17,12 @@ export class CreateQuestionComponent implements OnInit{
     userType = "";
     question: Question;
     questions: Question[];
+    questionDTO: QuestionDTO;
     
-   
     constructor(private questionService: QuestionService, private router: Router, private activatedRoute: ActivatedRoute){
         this.question = new Question();
         this.questions = [];
+        this.questionDTO = new QuestionDTO();
     }
 
     ngOnInit(): void {
@@ -50,6 +52,18 @@ export class CreateQuestionComponent implements OnInit{
         this.router.navigate(['home', {p1: null, p2: null, p3: null}]);
     }
 
+    //description, image, date time, topic, title
     onSubmitCreateQuestion(questionForm: any){
+        this.questionDTO.title = questionForm.value.title;
+        this.questionDTO.description = questionForm.value.description;
+        //this.questionDTO.image = questionForm.value.image;
+        this.questionDTO.dateTime = "" + Date.now();
+        this.questionDTO.topic = questionForm.value.topic;
+        console.log(this.questionDTO.title);
+        console.log(this.questionDTO.description);
+        //console.log(this.questionDTO.image);
+        console.log(this.questionDTO.dateTime);
+        console.log(this.questionDTO.topic);
+        //this.questionService.addQuestion(this.questionDTO).subscribe();
     }
 }

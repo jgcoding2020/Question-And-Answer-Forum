@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Question } from "./question";
 import { Observable } from 'rxjs';
 import { HttpClient } from "@angular/common/http";
+import { QuestionDTO } from "./questionDTO";
 
 @Injectable({
     providedIn: 'root'
@@ -18,5 +19,9 @@ export class QuestionService{
     // gets list of all questions from database
     getQuestions():Observable<Question[]> {
         return this.http.get<Question[]>(`${this.baseUrl}` + "/getallquestion");
+    }
+
+    addQuestion(question: QuestionDTO):Observable<QuestionDTO> {
+        return this.http.post<QuestionDTO>(this.baseUrl + "/addquestion", question);
     }
 }
