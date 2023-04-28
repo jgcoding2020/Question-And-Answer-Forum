@@ -51,8 +51,6 @@
                         placeholder="Enter your password" required></td>
             </tr>
             <button class="login-button" [disabled]="userLoginForm.invalid" type="submit">Login</button>
-            <br>
-            <button *ngIf="toggleLink" (click)="passDataOnRoute()" [routerLink]="go()">Your home page</button>
         </table>
     </form>
 </div>
