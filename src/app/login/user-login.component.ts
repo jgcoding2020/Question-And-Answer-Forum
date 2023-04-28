@@ -18,8 +18,6 @@ export class UserLoginComponent implements OnInit{
     currentUserId: number;
     registerForm: User;
     loginForm: Login;
-    link: string = "/user-home";
-    toggleLink = false;
 
     constructor(private router: Router, private userService: UserService){
         this.users = [];
@@ -60,24 +58,20 @@ export class UserLoginComponent implements OnInit{
             this.currentUser = <User>data;
             console.log(this.currentUser);
 
-            if (this.currentUser.id !=  0 && this.currentUser.userType == "user")
-                this.toggleLink = true;
+            if (this.currentUser.id !=  0 && this.currentUser.userType == "user"){
+                this.router.navigate(['user-home', {p1: this.currentUser.id, p2: this.currentUser.username, p3: this.currentUser.userType}]);
+            }
+                
             else {
-                this.toggleLink = false;
                 alert("Username and password is invalid for a user")
             }
                 
         })
     }
 
-    go(): string {
-        return this.link;
-    }
-
-    passDataOnRoute(){
-        console.log(typeof this.currentUser.id);
-        this.router.navigate(['user-home', {p1: this.currentUser.id}]);
-    }
+    goUserHome(): string {
+        return "/user-home";
+    }   
 
     refresh()
     {

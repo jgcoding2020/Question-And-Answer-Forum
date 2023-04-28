@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Admin } from "./admin";
 import { AdminService } from "./admin.service";
 import { Login } from "./login";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'admin-sign-up',
@@ -16,10 +17,8 @@ export class AdminSignUpComponent implements OnInit {
     currentAdminId: number;
     registerForm: Admin;
     loginForm: Login;
-    link: string = "/admin-home";
-    toggleLink = false;
 
-    constructor(private adminService: AdminService){
+    constructor(private router: Router, private adminService: AdminService){
         this.admins = [];
         this.currentAdmin = new Admin();
         this.currentAdminId = 0;
@@ -59,17 +58,12 @@ export class AdminSignUpComponent implements OnInit {
             console.log(this.currentAdmin);
 
             if (this.currentAdmin.id != 0 && this.currentAdmin.userType == "admin")
-                this.toggleLink = true;
+            this.router.navigate(['admin-home', {p1: this.currentAdmin.id, p2: this.currentAdmin.username, p3: this.currentAdmin.userType}])
             else {
-                this.toggleLink = false;
                 alert("Username and password is invalid for an admin")
             }
                 
         })
-    }
-
-    go(): string {
-        return this.link;
     }
 
     refresh()

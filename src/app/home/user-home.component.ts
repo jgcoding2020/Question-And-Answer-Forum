@@ -9,16 +9,26 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 export class UserHomeComponent implements OnInit{
 
-    message: string = "current user's name";
-    currentUserId = 0;
+    id = 0;
+    username = "";
+    userType = "";
 
-    constructor(private route: ActivatedRoute){
+    constructor(private router: Router, private activatedRoute: ActivatedRoute){
         
     }
 
     ngOnInit(): void {
-        this.route.queryParams.subscribe(params => {
+        this.id = this.activatedRoute.snapshot.params['p1'];
+        this.username = this.activatedRoute.snapshot.params['p2'];
+        this.userType = this.activatedRoute.snapshot.params['p3'];
+        //this.currentUserId = this.activatedRoute.snapshot.paramMap.get('p1');
+        /* this.activatedRoute.params.subscribe(params => {
             console.log(params['p1']);
-        });
+        }); */
+        console.log(this.id);
+        console.log(this.username);
+        console.log(this.userType);
     }
+
+    
 }
