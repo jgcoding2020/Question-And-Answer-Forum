@@ -67,6 +67,7 @@ public class QuestionController {
 		//If the current logged in username matches the username of the question's creator
 		// Then quesiton will be able to be updated
 		// Otherwise no updates shall be put here
+		// --Juan David
 		if(toUpdate.getQcreated_by().equals(UserController.session.getUsername())) {
 			if(updates.getTitle() != null) {
 				toUpdate.setTitle(updates.getTitle());
@@ -83,12 +84,6 @@ public class QuestionController {
 			if(updates.getTopic() != null) {
 				toUpdate.setTopic(updates.getTopic());
 			}
-//			if(updates.getQcreated_by() != null) {
-//				updated.setQcreated_by(updates.getQcreated_by());
-//			}
-//			if(updates.getQapproved_by() != null) {
-//				updated.setQapproved_by(updates.getQapproved_by());
-//			}
 //			if(updates.getAnswers() != null) {
 //				updated.setAnswers(updates.getAnswers());
 //			}
@@ -141,8 +136,20 @@ public class QuestionController {
 		return questionsByTopic;
 	}
 	
-	public void searchQuestion(@RequestParam(name = "search") String search) {
+	@GetMapping("/search")
+	public List<Question> searchQuestion(@RequestParam(name = "search") String search) {
+		List<Question> searchResults = new ArrayList<>();
+		Iterator<Question> allQuestions = getAllQuestion().iterator();
 		
+		while(allQuestions.hasNext()) {
+			Question thisQuestion = allQuestions.next();
+			
+			if(Constants.isSubstring(search, thisQuestion.getTitle())) {
+				searchResults.add(thisQuestion);
+			}
+		}
+		
+		return searchResults;
 	}
 	
 	// No clue what this method is meant to do

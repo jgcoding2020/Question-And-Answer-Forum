@@ -47,7 +47,7 @@ public class Question {
 			String title, String qcreated_by) {
 		
 		this.description_question = description_question; //
-		this.image_src = image_src;//
+		this.image_src = image_src;//This should probably also be null
 		this.datetime = datetime;//
 		this.status = "Pending for approval";
 		this.topic = topic;

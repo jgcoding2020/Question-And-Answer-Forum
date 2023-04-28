@@ -79,19 +79,19 @@ public class AnswerController {
 		return "";
 	}
 	
-//	@GetMapping("answers/question")
-//	public List<Answer> getAnswerByQuestionId(@RequestParam Integer questionId){
-//		Iterator<Answer> all = getAllAnswers().iterator();
-//		List<Answer> answersOfQuestion = new ArrayList<Answer>();
-//		while(all.hasNext()) {
-//			Answer currentAnswer = all.next();
-//			if(currentAnswer.getQuestion().getId() == questionId) {
-//				answersOfQuestion.add(currentAnswer);
-//			}
-//		}
-//		
-//		return answersOfQuestion;
-//	}
+	@GetMapping("/question")
+	public List<Answer> getAnswerByQuestionId(@RequestParam (name = "question_id")Integer questionId){
+		Iterator<Answer> all = getAllAnswers().iterator();
+		List<Answer> answersOfQuestion = new ArrayList<Answer>();
+		while(all.hasNext()) {
+			Answer currentAnswer = all.next();
+			if(currentAnswer.getQuestion().getId() == questionId) {
+				answersOfQuestion.add(currentAnswer);
+			}
+		}
+		
+		return answersOfQuestion;
+	}
 	
 	
 	

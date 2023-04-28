@@ -37,15 +37,14 @@ public class Answer {
 	//onetone
 	private String created_by;
 	
-	public Answer(String description_answer, String img_src, String status, String datetime, Question qiestion,
-			String approved_by, String created_by) {
+	public Answer(String description_answer, String datetime, Question question, String created_by) {
 
 		this.description_answer = description_answer;
-		this.img_src = img_src;
-		this.status = status;
+		this.img_src = null;
+		this.status = "Pending approval";
 		this.datetime = datetime;
 		this.question = question;
-		this.approved_by = approved_by;
+		this.approved_by = null;
 		this.created_by = created_by;
 	}
 	

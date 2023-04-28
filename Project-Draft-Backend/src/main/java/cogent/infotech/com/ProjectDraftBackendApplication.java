@@ -60,6 +60,16 @@ public class ProjectDraftBackendApplication {
 		questionRepo.saveAll(fillerQuestions);
 		
 		List<Answer> fillerAnswers = new ArrayList<>();
-		
+		fillerAnswers.add(new Answer("Have you tried looking at the Angular documentation?",
+				"11/11/11", fillerQuestions.get(1), "davi23"));
+		fillerAnswers.add(new Answer("This is an answer description. It is very helpful and addresses all of the asker's concerns without any hint of disdain.",
+				"11/11/11", fillerQuestions.get(0), "juan23"));
+		fillerAnswers.add(new Answer("JWT stands for JSON Web Token",
+				"11/11/11", fillerQuestions.get(4), "raaaa"));
+		fillerAnswers.add(new Answer("JWT is a way of storing a user's information on the client side, so that user information doesn't need to be passed and validated constantly through the server.",
+				"11/11/11", fillerQuestions.get(4), "anuuuu"));
+		fillerAnswers.add(new Answer("This 'answer' is not the least bit helpful. It berates the original asker on his ignorance and provides no useful links. It only serves to feed the responder's ego.",
+				"11/11/11", fillerQuestions.get(0), "davi23"));
+		answerRepo.saveAll(fillerAnswers);
 	}
 }
