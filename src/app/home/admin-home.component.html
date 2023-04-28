@@ -1,8 +1,8 @@
 <nav>
     <strong>DoConnect</strong>
-    <button class="pending-question-button">Pending Question</button>
-    <button class="pending-answer-button">Pending Answer</button>
-    <button class="sign-out-button">Sign Out</button>
+    <button class="pending-question-button" (click)="goPendingQuestion()">Pending Question</button>
+    <button class="pending-answer-button" (click)="goPendingAnswer()">Pending Answer</button>
+    <button class="sign-out-button" (click)="goSignOut()">Sign Out</button>
     <div class="username-div">
         {{username}}
     </div>
