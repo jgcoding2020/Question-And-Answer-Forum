@@ -26,8 +26,11 @@ import cogent.infotech.com.security.Constants;
 @RestController
 @RequestMapping(Constants.BASEURL + "/user")
 public class UserController {
+	
+	public static User session;
+	
 	@Autowired
-	UserRepository repo;
+	private UserRepository repo;
 	
 	// Home
 	@GetMapping("/")
@@ -42,12 +45,12 @@ public class UserController {
 	// In the meantime, the project is running wihtout any security dependencies
 	@PostMapping("/adduser")
 	public User addUser(@RequestBody User user) {
-		return repo.save(user);
+		return this.repo.save(user);
 	}
 	
 	@GetMapping("/getallusers")
 	public List<User> getAllUsers(){
-		return repo.findAll();
+		return this.repo.findAll();
 	}
 	
 //	@GetMapping("/getuserbyId")
@@ -57,7 +60,7 @@ public class UserController {
 	
 	@GetMapping("/getuserbyId")
 	public User getUserById(@RequestParam(value = "id") Integer id) {
-		return repo.findById(id).get();
+		return this.repo.findById(id).get();
 	}
 	
 	/**
@@ -89,7 +92,13 @@ public class UserController {
 				
 			}
 		}
+		session = currentUser;
 		return currentUser;	
+	}
+	
+	@PostMapping("/logout")
+	public void getLogout() {
+		session = null;
 	}
 	
 	// This funciton is not returning an object but also not returning an error
