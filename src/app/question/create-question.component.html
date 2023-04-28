@@ -1,1 +1,32 @@
-{{message}}
+<nav>
+    <strong>DoConnect</strong>
+    <button class="create-question-button" (click)="goCreateQuestion()">Create Question</button>
+    <button class="search-question-button" (click)="goSearchQuestion()">Search Question</button>
+    <button class="chat-button" (click)="goChat()">Chat with Us!</button>
+    <button class="sign-out-button" (click)="goSignOut()">Sign Out</button>
+    <div class="username-div">
+        {{username}}
+    </div>
+</nav>
+<h1>Create New Question</h1>
+<form novalidate #createQuestionForm (ngSubmit)="onSubmitCreateQuestion(createQuestionForm)">
+    <table>
+        <tr>
+<input type="text" placeholder="title">
+</tr>
+<tr>
+<select>
+    <option>server</option>
+    <option>client</option>
+    <option>database</option>
+</select>
+</tr>
+<tr>
+<input type="textfield" placeholder="description">
+</tr>
+<tr>
+    <input type="file" class="file-upload" onchange="console.log(event.target.files)">
+</tr>
+<button type="submit">create</button>
+</table>
+</form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
     selector: 'user-home',
@@ -30,5 +30,19 @@ export class UserHomeComponent implements OnInit{
         console.log(this.userType);
     }
 
-    
+    goCreateQuestion(){
+        this.router.navigate(['create-question', {p1: this.id, p2: this.username, p3: this.userType}]);
+    }
+
+    goSearchQuestion(){
+        this.router.navigate(['search-question', {p1: this.id, p2: this.username, p3: this.userType}]);
+    }
+
+    goChat(){
+        this.router.navigate(['chat', {p1: this.id, p2: this.username, p3: this.userType}]);
+    }
+
+    goSignOut(){
+        this.router.navigate(['home', {p1: null, p2: null, p3: null}]);
+    }
 }
