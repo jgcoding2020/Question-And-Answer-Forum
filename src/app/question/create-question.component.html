@@ -29,7 +29,7 @@
         <tr>
             <td><input class="file-upload" type="file" [(ngModel)]="questionDTO.image_src" name="image" onchange="console.log(event.target.files)" required></td>
         </tr>
-        <button class="search-button" type="submit">create</button>
+        <button class="search-button" type="submit" (click)="refresh()">create</button>
     </table>
 </form>
 </div>
