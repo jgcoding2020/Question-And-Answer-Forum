@@ -1,3 +1,11 @@
+body {
+    background-image: url('../../images/home-background.jpg');
+    height: 400px;
+    background-repeat: no-repeat;
+    width:100%;
+    margin: auto;
+}
+
 nav {
     border-radius: 3px;
     padding: 5px;
@@ -22,3 +30,4 @@ strong {
     margin-right: 5px;
     border: none;
 }
+

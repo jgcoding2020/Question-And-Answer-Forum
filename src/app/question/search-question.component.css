@@ -28,3 +28,13 @@ button {
     display: inline-block;
     text-align: center;
 }
+
+h2 {
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 90%;
+    margin: 25px auto;
+}
