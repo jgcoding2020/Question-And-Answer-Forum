@@ -1,5 +1,6 @@
 package cogent.infotech.com;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +11,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import cogent.infotech.com.entities.Answer;
+import cogent.infotech.com.entities.Chat;
 import cogent.infotech.com.entities.Question;
 import cogent.infotech.com.entities.User;
 import cogent.infotech.com.repositories.AnswerRepository;
+import cogent.infotech.com.repositories.ChatRepository;
 import cogent.infotech.com.repositories.QuestionRepository;
 import cogent.infotech.com.repositories.UserRepository;
 
@@ -25,6 +28,12 @@ public class ProjectDraftBackendApplication {
 	QuestionRepository questionRepo;
 	@Autowired
 	AnswerRepository answerRepo;
+	@Autowired
+	ChatRepository chatRepo;
+	
+	LocalDateTime x = LocalDateTime.now();
+	String y = x.toString();
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProjectDraftBackendApplication.class, args);
@@ -61,15 +70,29 @@ public class ProjectDraftBackendApplication {
 		
 		List<Answer> fillerAnswers = new ArrayList<>();
 		fillerAnswers.add(new Answer("Have you tried looking at the Angular documentation?",
-				"11/11/11", fillerQuestions.get(1), "davi23"));
+				 null,y, fillerQuestions.get(1), "davi23"));
 		fillerAnswers.add(new Answer("This is an answer description. It is very helpful and addresses all of the asker's concerns without any hint of disdain.",
-				"11/11/11", fillerQuestions.get(0), "juan23"));
+				null,y, fillerQuestions.get(0), "juan23"));
 		fillerAnswers.add(new Answer("JWT stands for JSON Web Token",
-				"11/11/11", fillerQuestions.get(4), "raaaa"));
+				null, y,fillerQuestions.get(4), "raaaa"));
 		fillerAnswers.add(new Answer("JWT is a way of storing a user's information on the client side, so that user information doesn't need to be passed and validated constantly through the server.",
-				"11/11/11", fillerQuestions.get(4), "anuuuu"));
+				null,y, fillerQuestions.get(4), "anuuuu"));
 		fillerAnswers.add(new Answer("This 'answer' is not the least bit helpful. It berates the original asker on his ignorance and provides no useful links. It only serves to feed the responder's ego.",
-				"11/11/11", fillerQuestions.get(0), "davi23"));
+				null,y, fillerQuestions.get(0), "davi23"));
 		answerRepo.saveAll(fillerAnswers);
+		
+		//Simulation of a chat
+		List<Chat> chatSimulation = new ArrayList<>();
+		chatSimulation.add(new Chat("juan23", "raaaa", "Hey where did you learn Python?", y));
+		chatSimulation.add(new Chat("raaaa", "juan23", "Oh I learned it online.", y));
+		chatSimulation.add(new Chat("raaaa", "juan23", "Why do you ask?", y));
+		chatSimulation.add(new Chat("juan23", "raaaa", "I'm trying to learn it.", y));
+		chatSimulation.add(new Chat("juan23", "raaaa", "Can you link to where you learned?", y));
+		chatSimulation.add(new Chat("raaaa", "juan23", "Yea sure.", y));
+		chatSimulation.add(new Chat("raaaa", "juan23", "Just gimme a sec", y));
+		chatSimulation.add(new Chat("raaaa", "juan23", "Ok Here: <Link>", y));
+		chatSimulation.add(new Chat("juan23", "raaaa", "Thanks", y));
+		chatSimulation.add(new Chat("raaaa", "juan23", "Np", y));
+		
 	}
 }
