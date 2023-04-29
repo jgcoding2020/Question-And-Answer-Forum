@@ -53,3 +53,21 @@ table {
     width: 100%;
     margin: auto;
 }
+
+select, input {
+    width: 300px;
+    height: 25px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.input-description {
+    height: 50px;
+}
+
+.search-button {
+    width: 75px;
+    margin: 10px;
+    border-radius: 3px;
+    border: solid black;
+}
