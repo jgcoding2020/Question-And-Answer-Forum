@@ -20,10 +20,10 @@ import lombok.NoArgsConstructor;
 @Table(name = "answers")
 public class Answer {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String description_answer;
-	private String img_src;
+	private String img_src = null;
 	private String status;
 	private String datetime;
 	@ManyToOne
@@ -37,10 +37,10 @@ public class Answer {
 	//onetone
 	private String created_by;
 	
-	public Answer(String description_answer, String datetime, Question question, String created_by) {
+	public Answer(String description_answer, String img_src, String datetime, Question question, String created_by) {
 
 		this.description_answer = description_answer;
-		this.img_src = null;
+		this.img_src = img_src;
 		this.status = "Pending approval";
 		this.datetime = datetime;
 		this.question = question;
