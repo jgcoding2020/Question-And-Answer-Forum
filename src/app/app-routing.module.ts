@@ -10,6 +10,7 @@ import { CreateQuestionComponent } from './question/create-question.component';
 import { SearchQuestionComponent } from './question/search-question.component';
 import { CreatedQuestionComponent } from './question/created-question.component';
 import { PendingQuestionComponent } from './question/pending-question.component';
+import { CreateAnswerComponent } from './answer/create-answer.component';
 import { CreatedAnswerComponent } from './answer/created-answer.component';
 import { PendingAnswerComponent } from './answer/pending-answer.component';
 import { ApprovedAnswerComponent } from './answer/approved-answer.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'search-question', component: SearchQuestionComponent},
   {path: 'created-question', component: CreatedQuestionComponent},
   {path: 'pending-question', component: PendingQuestionComponent},
+  {path: 'create-answer', component: CreatedAnswerComponent},
   {path: 'created-answer', component: CreatedAnswerComponent},
   {path: 'pending-answer', component: PendingAnswerComponent},
   {path: 'approved-answer', component: ApprovedAnswerComponent},

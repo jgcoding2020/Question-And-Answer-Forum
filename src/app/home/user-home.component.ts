@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Question } from "../question/question";
+import { QuestionService } from "../question/question.service";
 
 @Component({
     selector: 'user-home',
@@ -12,22 +14,27 @@ export class UserHomeComponent implements OnInit{
     id = 0;
     username = "";
     userType = "";
+    question: Question;
+    questions: Question[];
 
-    constructor(private router: Router, private activatedRoute: ActivatedRoute){
-        
+    constructor(private questionService: QuestionService, private router: Router, private activatedRoute: ActivatedRoute){
+        this.question = new Question();
+        this.questions = [];
     }
 
     ngOnInit(): void {
         this.id = this.activatedRoute.snapshot.params['p1'];
         this.username = this.activatedRoute.snapshot.params['p2'];
         this.userType = this.activatedRoute.snapshot.params['p3'];
-        //this.currentUserId = this.activatedRoute.snapshot.paramMap.get('p1');
-        /* this.activatedRoute.params.subscribe(params => {
-            console.log(params['p1']);
-        }); */
+        
         console.log(this.id);
         console.log(this.username);
         console.log(this.userType);
+
+        this.questionService.getQuestions().subscribe((data: Question[])=>{
+            console.log(data);
+            this.questions = data;
+        })
     }
 
     goCreateQuestion(){

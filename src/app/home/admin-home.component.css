@@ -19,6 +19,11 @@ button {
     font-size: 12px;
 }
 
+.sign-out-button {
+    background-color: black;
+    color: white;
+}
+
 .username-div {
     display: inline-block;
     text-align: center;

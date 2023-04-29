@@ -19,7 +19,57 @@ button {
     font-size: 12px;
 }
 
+.sign-out-button {
+    background-color: black;
+    color: white;
+}
+
 .username-div {
     display: inline-block;
     text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    width: 97%;
+    padding: 15px;
+    border: solid black;
+    border-radius: 10px;
+    margin: 25px auto;
+    text-align: center;
+    background-color: black;
+    color:white;
+}
+
+.div-created-question {
+    width: 95%;
+    padding: 30px;
+    border: solid black;
+    border-radius: 10px;
+    margin: 25px auto;
+}
+
+.div-image {
+    border: solid black;
+    width: 74.5%;
+    margin: 10px auto;
+}
+
+.created-question-table {
+    border: black solid;
+    border-collapse: collapse;
+    width: 75%;
+    margin:auto;
+
+}
+tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
+td {
+    border: solid black;
+    padding: 10px;
 }

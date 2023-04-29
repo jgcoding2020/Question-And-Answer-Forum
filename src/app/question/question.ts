@@ -1,8 +1,8 @@
 export class Question {
     id = 0;
-    description = "";
-    image = "";
-    dateTime = "";
+    description_question = "";
+    image_src = "";
+    datetime = "";
     status = "";
     topic = "";
     title = "";

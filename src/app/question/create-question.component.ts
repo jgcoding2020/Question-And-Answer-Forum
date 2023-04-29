@@ -57,7 +57,7 @@ export class CreateQuestionComponent implements OnInit{
         this.questionDTO.title = questionForm.value.title;
         this.questionDTO.description_question = questionForm.value.description;
         this.questionDTO.image_src = questionForm.value.image;
-        this.questionDTO.datetime = "" + new Date();
+        this.questionDTO.datetime = "" + Date.now();
         this.questionDTO.topic = questionForm.value.topic;
         console.log(this.questionDTO.title);
         console.log(this.questionDTO.description_question);
@@ -66,6 +66,4 @@ export class CreateQuestionComponent implements OnInit{
         console.log(this.questionDTO.topic);
         this.questionService.addQuestion(this.questionDTO).subscribe();
     }
-
-    
 }

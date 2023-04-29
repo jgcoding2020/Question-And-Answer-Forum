@@ -14,6 +14,7 @@ import { CreateQuestionComponent } from './question/create-question.component';
 import { SearchQuestionComponent } from './question/search-question.component';
 import { CreatedQuestionComponent } from './question/created-question.component';
 import { PendingQuestionComponent } from './question/pending-question.component';
+import { CreateAnswerComponent } from './answer/create-answer.component';
 import { CreatedAnswerComponent } from './answer/created-answer.component';
 import { PendingAnswerComponent } from './answer/pending-answer.component';
 import { ApprovedAnswerComponent } from './answer/approved-answer.component';
@@ -26,8 +27,8 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
     AppComponent, HomeComponent, UserHomeComponent, AdminHomeComponent,
     UserLoginComponent, AdminSignUpComponent, CreateQuestionComponent, 
     SearchQuestionComponent, CreatedQuestionComponent, PendingQuestionComponent, 
-    CreatedAnswerComponent, PendingAnswerComponent, ApprovedAnswerComponent, 
-    ChatComponent, UserToUserChatComponent, NoPageFoundComponent
+    CreateAnswerComponent, CreatedAnswerComponent, PendingAnswerComponent, 
+    ApprovedAnswerComponent, ChatComponent, UserToUserChatComponent, NoPageFoundComponent
   ],
   imports: [
     BrowserModule,
