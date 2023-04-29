@@ -50,12 +50,6 @@ h2 {
     margin-bottom: 50px;
 }
 
-.search-button {
-    border-radius: 25px;
-    border: solid black;
-    margin: 15px;
-}
-
 select {
     margin: 15px;
     border-radius: 25px;
@@ -67,4 +61,10 @@ input {
     width: 300px;
     border-radius: 25px;
     height: 30px;
+}
+
+.search-button {
+    border-radius: 25px;
+    border: solid black;
+    margin: 15px;
 }

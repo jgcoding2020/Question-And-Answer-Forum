@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'search-question', component: SearchQuestionComponent},
   {path: 'created-question', component: CreatedQuestionComponent},
   {path: 'pending-question', component: PendingQuestionComponent},
-  {path: 'create-answer', component: CreatedAnswerComponent},
+  {path: 'create-answer', component: CreateAnswerComponent},
   {path: 'created-answer', component: CreatedAnswerComponent},
   {path: 'pending-answer', component: PendingAnswerComponent},
   {path: 'approved-answer', component: ApprovedAnswerComponent},
