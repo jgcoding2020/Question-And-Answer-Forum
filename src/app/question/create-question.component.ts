@@ -20,9 +20,9 @@ export class CreateQuestionComponent implements OnInit{
     questionDTO: QuestionDTO;
     
     constructor(private questionService: QuestionService, private router: Router, private activatedRoute: ActivatedRoute){
+        this.questionDTO = new QuestionDTO();
         this.question = new Question();
         this.questions = [];
-        this.questionDTO = new QuestionDTO();
     }
 
     ngOnInit(): void {
@@ -55,15 +55,17 @@ export class CreateQuestionComponent implements OnInit{
     //description, image, date time, topic, title
     onSubmitCreateQuestion(questionForm: any){
         this.questionDTO.title = questionForm.value.title;
-        this.questionDTO.description = questionForm.value.description;
-        //this.questionDTO.image = questionForm.value.image;
-        this.questionDTO.dateTime = "" + Date.now();
+        this.questionDTO.description_question = questionForm.value.description;
+        this.questionDTO.image_src = questionForm.value.image;
+        this.questionDTO.datetime = "" + new Date();
         this.questionDTO.topic = questionForm.value.topic;
         console.log(this.questionDTO.title);
-        console.log(this.questionDTO.description);
-        //console.log(this.questionDTO.image);
-        console.log(this.questionDTO.dateTime);
+        console.log(this.questionDTO.description_question);
+        console.log(this.questionDTO.image_src);
+        console.log(this.questionDTO.datetime);
         console.log(this.questionDTO.topic);
-        //this.questionService.addQuestion(this.questionDTO).subscribe();
+        this.questionService.addQuestion(this.questionDTO).subscribe();
     }
+
+    
 }

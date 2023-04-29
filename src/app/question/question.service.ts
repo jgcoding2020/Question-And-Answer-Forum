@@ -21,7 +21,7 @@ export class QuestionService{
         return this.http.get<Question[]>(`${this.baseUrl}` + "/getallquestion");
     }
 
-    addQuestion(question: QuestionDTO):Observable<QuestionDTO> {
-        return this.http.post<QuestionDTO>(this.baseUrl + "/addquestion", question);
+    addQuestion(questionDTO: QuestionDTO):Observable<QuestionDTO> {
+        return this.http.post<QuestionDTO>(this.baseUrl + "/addquestion", questionDTO);
     }
 }

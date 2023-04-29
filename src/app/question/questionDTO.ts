@@ -1,8 +1,8 @@
 export class QuestionDTO {
 
+    datetime = "";
+    description_question = "";
+    image_src = "";
     title = "";
-    description = "";
-    image = "";
-    dateTime = "";
     topic = "";
 }

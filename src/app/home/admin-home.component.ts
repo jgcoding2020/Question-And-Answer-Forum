@@ -33,5 +33,4 @@ export class AdminHomeComponent implements OnInit{
     goSignOut(){
         this.router.navigate(['home', {p1: null, p2: null, p3: null}]);
     }
-
 }
