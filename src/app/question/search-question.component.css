@@ -40,9 +40,14 @@ h2 {
 }
 
 .div-question-search {
-    width: 100%;
+    width: 92%;
     margin: auto;
     text-align: center;
+    border: solid black;
+    border-radius: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .search-button {
