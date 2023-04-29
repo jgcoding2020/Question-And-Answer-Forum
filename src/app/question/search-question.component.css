@@ -53,10 +53,13 @@ h2 {
 
 select {
     margin: 15px;
+    border-radius: 25px;
+    height: 30px;
 }
 
 input {
     margin: 15px;
     width: 300px;
     border-radius: 25px;
+    height: 30px;
 }
