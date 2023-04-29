@@ -13,6 +13,16 @@ strong {
     font-size: 20px;
 }
 
+h2 {
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 95%;
+    margin: 25px auto;
+}
+
 .home-button {
     float: right;
     margin: 5px 5%;
@@ -22,6 +32,13 @@ strong {
 .container {
     display: flex;
     justify-content: space-evenly;
+    border: solid black;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    width: 95%;
+    margin: auto;
+    margin-bottom: 50px;
 }
 
 form {
