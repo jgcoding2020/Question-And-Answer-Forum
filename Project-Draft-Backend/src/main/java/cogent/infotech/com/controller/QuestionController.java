@@ -44,7 +44,7 @@ public class QuestionController {
 	 *  */
 	@PostMapping("/addquestion")
 	public Question addQuestion(@RequestBody QuestionDTO q) {
-		Question newQuestion = new Question(q.getDescription_question(), q.getImage_src(), q.getDatetime(), q.getTopic(), q.getTitle(), UserController.session.getUsername());
+		Question newQuestion = new Question(q.getDescription_question(), q.getImage_src(), q.getDatetime(), q.getTopic(), q.getTitle(), Constants.session.getUsername());
 		return this.repo.save(newQuestion);
 	}
 	
@@ -68,7 +68,7 @@ public class QuestionController {
 		// Then quesiton will be able to be updated
 		// Otherwise no updates shall be put here
 		// --Juan David
-		if(toUpdate.getQcreated_by().equals(UserController.session.getUsername())) {
+		if(toUpdate.getQcreated_by().equals(Constants.session.getUsername())) {
 			if(updates.getTitle() != null) {
 				toUpdate.setTitle(updates.getTitle());
 			}
@@ -98,9 +98,9 @@ public class QuestionController {
 		// If the current logged in user is an admin
 		// Then user may change question's status attribute
 		// Otherwise no changes will occur
-		if(UserController.session.getUserType().equals("admin")) {
+		if(Constants.session.getUserType().equals("admin")) {
 			toApprove.setStatus(statusdto.getStatus());
-			toApprove.setQapproved_by(UserController.session.getUsername());
+			toApprove.setQapproved_by(Constants.session.getUsername());
 		}
 		
 		return this.repo.save(toApprove);

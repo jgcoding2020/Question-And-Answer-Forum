@@ -27,7 +27,7 @@ import cogent.infotech.com.security.Constants;
 @RequestMapping(Constants.BASEURL + "/user")
 public class UserController {
 	
-	public static User session;
+//	public static User session;
 	
 	@Autowired
 	private UserRepository repo;
@@ -43,6 +43,7 @@ public class UserController {
 	// It has something to do with "cfrs" or something
 	// This "cfsr" needs to be disabled in the SecurityConfig in order to prevent this error
 	// In the meantime, the project is running wihtout any security dependencies
+	//-- Juan David
 	@PostMapping("/adduser")
 	public User addUser(@RequestBody User user) {
 		return this.repo.save(user);
@@ -92,13 +93,13 @@ public class UserController {
 				
 			}
 		}
-		session = currentUser;
+		Constants.session = currentUser;
 		return currentUser;	
 	}
 	
 	@PostMapping("/logout")
 	public void getLogout() {
-		session = null;
+		Constants.session = null;
 	}
 	
 	// This funciton is not returning an object but also not returning an error
