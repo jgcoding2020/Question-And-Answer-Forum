@@ -1,0 +1,75 @@
+nav {
+    border-radius: 3px;
+    padding: 5px;
+    width: 95%;
+    margin: auto;
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 2px 2px 4px #000000;
+}
+
+strong {
+    display: inline-block;
+    font-size: 20px;
+}
+
+button {
+    border: none;
+    font-size: 12px;
+}
+
+.sign-out-button {
+    background-color: black;
+    color: white;
+}
+
+.username-div {
+    display: inline-block;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    width: 94%;
+    padding: 15px;
+    border: solid black;
+    border-radius: 10px;
+    margin: 25px auto;
+    text-align: center;
+    background-color: black;
+    color:white;
+}
+
+.div-created-question {
+    width: 90%;
+    padding: 30px;
+    border: solid black;
+    border-radius: 10px;
+    margin: 25px auto;
+}
+
+.div-image {
+    border: solid black;
+    width: 74.5%;
+    margin: 10px auto;
+}
+
+.created-question-table {
+    border: black solid;
+    border-collapse: collapse;
+    width: 75%;
+    margin:auto;
+
+}
+tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
+td {
+    border: solid black;
+    padding: 10px;
+}

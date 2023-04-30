@@ -1,0 +1,36 @@
+<nav>
+    <strong>DoConnect</strong>
+    <button class="create-question-button" (click)="goCreateQuestion()">Create Question</button>
+    <button class="search-question-button" (click)="goSearchQuestion()">Search Question</button>
+    <button class="chat-button" (click)="goChat()">Chat with Us!</button>
+    <button class="sign-out-button" (click)="goSignOut()">Sign Out</button>
+    <div class="username-div">
+        {{username}}
+    </div>
+</nav>
+<h1>User Home</h1>
+
+<h2><span>Created Questions</span></h2>
+<div *ngFor="let question of questions" class="div-created-question">
+    <div class="div-image">{{question.image_src}}</div>
+    <table class="created-question-table">
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{question.id}}</td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>{{question.title}}</td>
+            </tr>
+            <tr>
+                <td>Topic</td>
+                <td>{{question.topic}}</td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>{{question.description_question}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

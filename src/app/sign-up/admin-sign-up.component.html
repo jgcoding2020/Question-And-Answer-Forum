@@ -1,0 +1,58 @@
+<nav>
+    <strong>Do Connect Admin</strong>
+    <button class="home-button" [routerLink]="'/home'">Home</button>
+</nav>
+<h2>Admin Login Page</h2>
+<!--This is the application registration form for admin-->
+<div class="container">
+    <form class="register-admin-form" novalidate #registerAdminForm="ngForm"
+        (ngSubmit)="onSubmitAdd(registerAdminForm)">
+        <table class="register-admin-table">
+            <thead>
+                <th colspan="2">Admin Sign Up!</th>
+            </thead>
+            <tr>
+                <td><label for="name">Name </label></td>
+                <td><input type="text" [(ngModel)]="registerForm.name" name="name" placeholder="Enter your name"
+                        required></td>
+            </tr>
+            <tr>
+                <td><label for="username">Username </label></td>
+                <td><input type="text" [(ngModel)]="registerForm.username" name="username"
+                        placeholder="Enter your username" required></td>
+            </tr>
+            <tr>
+                <td><label for="salary">Password </label></td>
+                <td><input type="password" [(ngModel)]="registerForm.password" name="password"
+                        placeholder="Enter your password" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email </label></td>
+                <td><input type="email" [(ngModel)]="registerForm.email" name="email"
+                        placeholder="Enter your email address" required></td>
+            </tr>
+            <button class="register-admin-button" [disabled]="registerAdminForm.invalid" (click)="refresh()"
+                type="submit">Sign Up</button>
+        </table>
+    </form>
+
+    <!--This is the admin login form-->
+    <form class="login-admin-form" novalidate #adminLoginForm="ngForm" (ngSubmit)="onSubmitLogin(adminLoginForm)">
+        <table class="login-admin-table">
+            <thead>
+                <th colspan="2">Login Now!</th>
+            </thead>
+            <tr>
+                <td><label for="username"> Username </label></td>
+                <td><input type="text" [(ngModel)]="loginForm.username" name="username"
+                        placeholder="Enter your username" required></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password </label></td>
+                <td><input type="password" [(ngModel)]="loginForm.password" name="password"
+                        placeholder="Enter your password" required></td>
+            </tr>
+            <button class="login-button" [disabled]="adminLoginForm.invalid" type="submit">Login</button>
+        </table>
+    </form>
+</div>

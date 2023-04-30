@@ -1,0 +1,36 @@
+body {
+    background-image: url('../../images/home-background-cropped.jpg');
+    height: 475px;
+    background-repeat: no-repeat;
+    width:100%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 3px;
+    padding: 5px;
+    width: 95%;
+    margin: auto;
+    background-color: white;
+    box-shadow: 2px 2px 4px #000000;
+}
+
+strong {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.user-button {
+    margin-right: 5px;
+    margin-left: 25%;
+    border: none;
+}
+
+.admin-button {
+    margin-right: 5px;
+    border: none;
+}
+
