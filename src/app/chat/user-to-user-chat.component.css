@@ -38,3 +38,38 @@ button {
     display: inline-block;
     text-align: center;
 }
+
+.container{
+    border: solid black;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.my-chat{
+    border: solid brown;
+    border-collapse: collapse;
+}
+
+.their-chat{
+    border: solid yellow;
+}
+
+.chat-box{
+    width: 90%;
+    height: 50px;
+    border: solid salmon;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.chat-box input{
+    width: 70%;
+    height: 60%;
+}
+
+.my-chat-bubble{
+    border: solid violet;
+}

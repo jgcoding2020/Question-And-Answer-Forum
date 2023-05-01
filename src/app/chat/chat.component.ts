@@ -78,9 +78,9 @@ export class ChatComponent implements OnInit{
 
     // Somehow, this username needs to be passed on to the user-to-user-chat component
     //--Juan David
-    startChat(username: String){
-        console.log(username);
-        this.router.navigate(['user-to-user-chat', {p1: this.UserId, p2: this.username, p3: this.userType}]);
+    startChat(recipientUsername: String){
+        console.log(recipientUsername);
+        this.router.navigate(['user-to-user-chat', {p1: this.UserId, p2: this.username, p3: this.userType, p4:recipientUsername}]);
     }
 
     goSignOut(){
