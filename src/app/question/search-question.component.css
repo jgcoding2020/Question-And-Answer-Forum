@@ -100,3 +100,18 @@ td {
     border: solid black;
     padding: 10px;
 }
+
+.div-create-answer-button {
+    display: flex;
+    justify-content: space-evenly;
+    width: 75%;
+    margin: auto;
+    margin-top:25px;
+}
+
+.create-answer-button {
+    padding: 10px;
+    border: solid black;
+    border-radius: 15px;
+    background-color: rgb(117, 234, 117);
+}

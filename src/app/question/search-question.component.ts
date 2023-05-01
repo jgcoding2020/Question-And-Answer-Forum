@@ -56,11 +56,10 @@ export class SearchQuestionComponent implements OnInit{
         }   
     }
 
-    /* refresh()
-    {
-        window.location.reload();
+    goCreateAnswer(questionId: number){
+        this.router.navigate(['create-answer', {p1: this.UserId, p2: this.username, p3: this.userType, p4: questionId}]);
     }
- */
+
     goCreateQuestion(){
         this.router.navigate(['create-question', {p1: this.UserId, p2: this.username, p3: this.userType}]);
     }
