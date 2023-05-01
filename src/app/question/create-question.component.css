@@ -54,7 +54,7 @@ table {
     margin: auto;
 }
 
-select, input {
+select, input, textarea {
     width: 300px;
     height: 25px;
     border-radius: 5px;

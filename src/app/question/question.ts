@@ -6,6 +6,6 @@ export class Question {
     status = "";
     topic = "";
     title = "";
-    createdBy = "";
-    approvedBy = "";
+    qcreated_by = "";
+    qapproved_by = "";
 }

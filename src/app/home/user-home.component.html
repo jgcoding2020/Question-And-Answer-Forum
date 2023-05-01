@@ -10,8 +10,8 @@
 </nav>
 <h1>User Home</h1>
 
-<h2><span>Created Questions</span></h2>
-<div *ngFor="let question of questions" class="div-created-question">
+<h2><span>Your Created Questions</span></h2>
+<div *ngFor="let question of userQuestions" class="div-created-question">
     <div class="div-image">{{question.image_src}}</div>
     <table class="created-question-table">
         <tbody>

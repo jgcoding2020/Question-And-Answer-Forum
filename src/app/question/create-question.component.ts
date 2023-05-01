@@ -49,6 +49,8 @@ export class CreateQuestionComponent implements OnInit{
     }
 
     goSignOut(){
+        this.router.navigate(['user-home', {p1: null, p2: null, p3: null}]);
+        alert("You have succefully logged out");
         this.router.navigate(['home', {p1: null, p2: null, p3: null}]);
     }
 

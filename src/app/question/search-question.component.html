@@ -10,15 +10,69 @@
 </nav>
 <h2>Search Question</h2>
 <div class="div-question-search">
-    <form>
+    <form #searchQuestionForm="ngForm" (ngSubmit)="onSubmitSearch(searchQuestionForm)">
         <label for="topic"><strong>Search the question: </strong></label>
-        <select name="topic">
+        <select name="topic" [(ngModel)]="topic" required>
             <option value="">-choose an option-</option>
             <option value="server">Server</option>
             <option value="database">Database</option>
             <option value="internet">Internet</option>
         </select>
-        <input type="search" name="search">
+        <input type="search" name="searchQuestion" [(ngModel)]="searchQuestion" placeholder="Search Question?" required>
         <button class="search-button" type="submit">Search</button>
     </form>
+</div>
+
+<div *ngIf="!searchToggle">
+    <h2><span>Created Questions: {{questions.length}}</span></h2>
+    <div *ngFor="let question of questions" class="div-created-question">
+        <div class="div-image">{{question.image_src}}</div>
+        <table class="created-question-table">
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td>{{question.id}}</td>
+                </tr>
+                <tr>
+                    <td>Title</td>
+                    <td>{{question.title}}</td>
+                </tr>
+                <tr>
+                    <td>Topic</td>
+                    <td>{{question.topic}}</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>{{question.description_question}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div *ngIf="searchToggle">
+    <h2><span>Search Results: {{searchResult.length}}</span></h2>
+    <div *ngFor="let question of searchResult" class="div-created-question">
+        <div class="div-image">{{question.image_src}}</div>
+        <table class="created-question-table">
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td>{{question.id}}</td>
+                </tr>
+                <tr>
+                    <td>Title</td>
+                    <td>{{question.title}}</td>
+                </tr>
+                <tr>
+                    <td>Topic</td>
+                    <td>{{question.topic}}</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>{{question.description_question}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

@@ -67,4 +67,36 @@ input {
     border-radius: 25px;
     border: solid black;
     margin: 15px;
+    width: 60px;
+    height: 30px;
+}
+
+.div-created-question {
+    width: 85%;
+    padding: 30px;
+    border: solid black;
+    border-radius: 10px;
+    margin: 25px auto;
+}
+
+.div-image {
+    border: solid black;
+    width: 74.5%;
+    margin: 10px auto;
+}
+
+.created-question-table {
+    border: black solid;
+    border-collapse: collapse;
+    width: 75%;
+    margin:auto;
+}
+
+tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
+td {
+    border: solid black;
+    padding: 10px;
 }

@@ -24,7 +24,7 @@
             </select></td>
         </tr>
         <tr>
-            <td><input class ="input-description" type="textfield" [(ngModel)]="questionDTO.description_question" name="description" placeholder="description" required></td>
+            <td><textarea class ="input-description" type="textfield" [(ngModel)]="questionDTO.description_question" name="description" placeholder="description" required></textarea></td>
         </tr>
         <tr>
             <td><input class="file-upload" type="file" [(ngModel)]="questionDTO.image_src" name="image" onchange="console.log(event.target.files)" required></td>

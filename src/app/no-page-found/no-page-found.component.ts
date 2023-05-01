@@ -7,5 +7,5 @@ import { Component } from "@angular/core";
 
 export class NoPageFoundComponent {
 
-    message: string = "This is no-page-found";
+    message: string = "There was no-page-found";
 }
