@@ -12,11 +12,9 @@
 <div class="div-question-search">
     <form #searchQuestionForm="ngForm" (ngSubmit)="onSubmitSearch(searchQuestionForm)">
         <label for="topic"><strong>Search the question: </strong></label>
-        <select name="topic" [(ngModel)]="topic" required>
-            <option value="">-choose an option-</option>
-            <option value="server">Server</option>
-            <option value="database">Database</option>
-            <option value="internet">Internet</option>
+        <select name="topic" [(ngModel)]="selectedTopic" required>
+            <option value="">--select an option--</option>
+            <option *ngFor="let question of questions" [value]="question.topic">{{question.topic}}</option>
         </select>
         <input type="search" name="searchQuestion" [(ngModel)]="searchQuestion" placeholder="Search Question?" required>
         <button class="search-button" type="submit">Search</button>

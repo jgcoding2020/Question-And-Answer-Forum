@@ -19,12 +19,14 @@ export class SearchQuestionComponent implements OnInit{
     topic: string;
     searchQuestion: string;
     searchResult: Question[];
+    selectedTopic: string;
     
     constructor(private router: Router, private activatedRoute: ActivatedRoute, private questionService: QuestionService){
         this.questions = [];
         this.topic = "";
         this.searchQuestion = "";
         this.searchResult = [];
+        this.selectedTopic = "";
     }
 
     ngOnInit(): void {
