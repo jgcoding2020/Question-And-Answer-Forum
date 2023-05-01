@@ -83,16 +83,16 @@ public class ProjectDraftBackendApplication {
 		
 		//Simulation of a chat
 		List<Chat> chatSimulation = new ArrayList<>();
-		chatSimulation.add(new Chat("juan23", "raaaa", "Hey where did you learn Python?", y));
-		chatSimulation.add(new Chat("raaaa", "juan23", "Oh I learned it online.", y));
-		chatSimulation.add(new Chat("raaaa", "juan23", "Why do you ask?", y));
-		chatSimulation.add(new Chat("juan23", "raaaa", "I'm trying to learn it.", y));
-		chatSimulation.add(new Chat("juan23", "raaaa", "Can you link to where you learned?", y));
-		chatSimulation.add(new Chat("raaaa", "juan23", "Yea sure.", y));
-		chatSimulation.add(new Chat("raaaa", "juan23", "Just gimme a sec", y));
-		chatSimulation.add(new Chat("raaaa", "juan23", "Ok Here: <Link>", y));
-		chatSimulation.add(new Chat("juan23", "raaaa", "Thanks", y));
-		chatSimulation.add(new Chat("raaaa", "juan23", "Np", y));
+		chatSimulation.add(new Chat("anuuuu", "raaaa", "Hey where did you learn Python?", y));
+		chatSimulation.add(new Chat("raaaa", "anuuuu", "Oh I learned it online.", y));
+		chatSimulation.add(new Chat("raaaa", "anuuuu", "Why do you ask?", y));
+		chatSimulation.add(new Chat("anuuuu", "raaaa", "I'm trying to learn it.", y));
+		chatSimulation.add(new Chat("anuuuu", "raaaa", "Can you link to where you learned?", y));
+		chatSimulation.add(new Chat("raaaa", "anuuuu", "Yea sure.", y));
+		chatSimulation.add(new Chat("raaaa", "anuuuu", "Just gimme a sec", y));
+		chatSimulation.add(new Chat("raaaa", "anuuuu", "Ok Here: <Link>", y));
+		chatSimulation.add(new Chat("anuuuu", "raaaa", "Thanks", y));
+		chatSimulation.add(new Chat("raaaa", "anuuuu", "Np", y));
 		chatRepo.saveAll(chatSimulation);
 		
 	}

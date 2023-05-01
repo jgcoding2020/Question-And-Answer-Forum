@@ -29,7 +29,7 @@ public class ChatController {
 	public Chat sendMessage(@RequestBody ChatDTO chatdto) {
 		Chat newChat = new Chat(
 				Constants.session.getUsername(),
-				chatdto.getRecipientUser(),
+				chatdto.getRecipient(),
 				chatdto.getMessage(),
 				LocalDateTime.now().toString()
 				);
