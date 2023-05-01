@@ -56,16 +56,16 @@ public class ProjectDraftBackendApplication {
 		
 		
 		List<Question> fillerQuestions = new ArrayList<>();
-		fillerQuestions.add(new Question("Question Description", "Image Source", "Date time", "Topic", "Title", "Created By"));
+		fillerQuestions.add(new Question("Question Description", "Image Source", "Date time", "Topic", "Title", "sancta27"));
 		fillerQuestions.add(new Question("I've been stuck for a week trying to pass an authorization header from angular to Spring. Pls help!", 
-					"Image Source", "Date time", "Technology", "How do HTTP headers work?", "juandiIzBadAtCode"));
+					"Image Source", "Date time", "Technology", "How do HTTP headers work?", "raaaa"));
 		fillerQuestions.add(new Question("My gf and I left the fridge open yesterday. Is this a sign that our relationship is falling apart?",
-					"Image Source", "Date time", "Relationship", "Should I break up with my girlfriend?", "toxico69"));
+					"Image Source", "Date time", "Relationship", "Should I break up with my girlfriend?", "raaaa"));
 		fillerQuestions.add(new Question("Please show your work. No calculators are allowed", 
-				"Image Source", "Date time", "Math", "Can you prove that 1+1=2?", "karen121"));
+				"Image Source", "Date time", "Math", "Can you prove that 1+1=2?", "juan23"));
 		fillerQuestions.add(new Question("I do not understand user authentication with JWT. Plz explain like I'm 5.", 
 				"Image Source", "Date time", "Technology", "What is JWT?", "dm_me_algorithms"));
-		fillerQuestions.add(new Question("Yes", "Image Source", "Date time", "Topic", "Is Arduino better than RaspberryPi?", "arduinoftw"));
+		fillerQuestions.add(new Question("Yes", "Image Source", "Date time", "Topic", "Is Arduino better than RaspberryPi?", "juan23"));
 		questionRepo.saveAll(fillerQuestions);
 		
 		List<Answer> fillerAnswers = new ArrayList<>();
@@ -93,6 +93,7 @@ public class ProjectDraftBackendApplication {
 		chatSimulation.add(new Chat("raaaa", "juan23", "Ok Here: <Link>", y));
 		chatSimulation.add(new Chat("juan23", "raaaa", "Thanks", y));
 		chatSimulation.add(new Chat("raaaa", "juan23", "Np", y));
+		chatRepo.saveAll(chatSimulation);
 		
 	}
 }

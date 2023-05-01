@@ -38,3 +38,26 @@ button {
     display: inline-block;
     text-align: center;
 }
+
+/*border-collapse: collapse
+    THis is required if you want to put a border around a table row
+    Without putting a border around every individual cell
+    --Juan David*/
+.user-chat-table {
+    border-collapse: collapse;
+    width: 50%;
+    padding: 30px;
+    border: solid black;
+    border-radius: 10px;
+    margin: 25px auto;
+}
+tr{
+    /* background-color: aliceblue; */
+    border: solid black;
+    padding: 10px;
+}
+
+/* td {
+    border: solid black;
+    padding: 10px;
+} */

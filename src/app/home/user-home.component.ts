@@ -37,15 +37,22 @@ export class UserHomeComponent implements OnInit {
             console.log(data);
             this.questions = data;
 
+            // count needs to be outside of the loop
+            // otherwise it will always be reset to 0 
+            // and not actually print out the whole list
+            let count = 0;
+
             // creates array of this user's questions
             for (let i = 0; i < data.length; i++) {
-                let count = 0;
-
+                
                 if (data[i].qcreated_by == this.username) {
+                    console.log(data[i].qcreated_by == this.username);
                     this.userQuestions[count] = data[i];
                     count++;
+                    console.log(count);
                 }
             }
+            
         })
     }
 
