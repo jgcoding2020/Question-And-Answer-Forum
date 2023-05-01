@@ -7,4 +7,31 @@
         {{username}}
     </div>
 </nav>
-<h2>Pending Question</h2>
+<h2>Pending Questions</h2>
+<div *ngFor="let question of pendingQuestions" class="div-pending-questions">
+    <div class="div-image">{{question.image_src}}</div>
+    <table class="created-question-table">
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{question.id}}</td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>{{question.title}}</td>
+            </tr>
+            <tr>
+                <td>Topic</td>
+                <td>{{question.topic}}</td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>{{question.description_question}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="div-approve-remove">
+        <button class="approve-button" (click)="approveQuestion(question.id)">approve</button>
+        <button class="remove-button" (click)="removeQuestion(question.id)">remove</button>
+    </div>
+</div>

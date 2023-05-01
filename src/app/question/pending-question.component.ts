@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Question } from "./question";
+import { QuestionService } from "./question.service";
+import { AdminService } from "../sign-up/admin.service";
+import { StatusDTO } from "../sign-up/statusDTO";
 
 @Component({
     selector: 'pending-question',
@@ -12,15 +16,49 @@ export class PendingQuestionComponent implements OnInit{
     id = 0;
     username = "";
     userType = "";
+    pendingQuestions: Question[];
 
-    constructor(private router: Router, private activatedRoute: ActivatedRoute){
-
+    constructor(private adminService: AdminService, private questionService: QuestionService, private router: Router, private activatedRoute: ActivatedRoute){
+        this.pendingQuestions = []; 
     }
 
     ngOnInit(): void {
         this.id = this.activatedRoute.snapshot.params['p1'];
         this.username = this.activatedRoute.snapshot.params['p2'];
         this.userType = this.activatedRoute.snapshot.params['p3'];
+        let count = 0;
+        this.questionService.getQuestions().subscribe((data: Question[]) => {
+            console.log(data);
+            
+            for (let i = 0; i < data.length; i++){
+                if (data[i].status == "Pending for approval"){
+                    this.pendingQuestions[count] = data[i];
+                    count++;
+                }
+            }
+        })
+    }
+
+    approveQuestion(questionId: number){
+        let status = new StatusDTO();
+        status.status = "approved";
+        console.log(status);
+        console.log(questionId);
+        this.adminService.statusApproval(status, questionId).subscribe();
+        if(confirm(`Question id: ${questionId} has been approved`)) {
+            window.location.href = "http://localhost:4200/pending-question;p1=19;p2=1;p3=admin";
+        }
+    }
+
+    removeQuestion(questionId: number){
+        let status = new StatusDTO();
+        status.status = "removed";
+        console.log(status);
+        console.log(questionId);
+        this.adminService.statusRemoval(status, questionId).subscribe();
+        if(confirm(`Question id: ${questionId} has been removed`)) {
+            window.location.href = "http://localhost:4200/pending-question;p1=19;p2=1;p3=admin";
+        }
     }
 
     goPendingQuestion(){
