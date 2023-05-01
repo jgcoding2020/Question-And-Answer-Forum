@@ -7,13 +7,13 @@ import { ActivatedRoute, Router } from "@angular/router";
     styleUrls: ['./pending-answer.component.css']
 })
 
-export class PendingAnswerComponent implements OnInit{
-    
+export class PendingAnswerComponent implements OnInit {
+
     id = 0;
     username = "";
     userType = "";
 
-    constructor(private router: Router, private activatedRoute: ActivatedRoute){
+    constructor(private router: Router, private activatedRoute: ActivatedRoute) {
 
     }
 
@@ -23,15 +23,15 @@ export class PendingAnswerComponent implements OnInit{
         this.userType = this.activatedRoute.snapshot.params['p3'];
     }
 
-    goPendingQuestion(){
-        this.router.navigate(['pending-question', {p1: null, p2: null, p3: null}]);
+    goPendingQuestion() {
+        this.router.navigate(['pending-question', { p1: this.id, p2: this.username, p3: this.userType }]);
     }
-    goPendingAnswer(){
-        this.router.navigate(['pending-answer', {p1: null, p2: null, p3: null}]);
+    goPendingAnswer() {
+        this.router.navigate(['pending-answer', { p1: this.id, p2: this.username, p3: this.userType }]);
     }
 
-    goSignOut(){
+    goSignOut() {
         alert("You have succefully logged out");
-        this.router.navigate(['home', {p1: null, p2: null, p3: null}]);
+        this.router.navigate(['home', { p1: null, p2: null, p3: null }]);
     }
 }

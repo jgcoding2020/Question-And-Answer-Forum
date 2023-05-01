@@ -24,10 +24,10 @@ export class AdminHomeComponent implements OnInit{
     }
 
     goPendingQuestion(){
-        this.router.navigate(['pending-question', {p1: null, p2: null, p3: null}]);
+        this.router.navigate(['pending-question', { p1: this.id, p2: this.username, p3: this.userType }]);
     }
     goPendingAnswer(){
-        this.router.navigate(['pending-answer', {p1: null, p2: null, p3: null}]);
+        this.router.navigate(['pending-answer', { p1: this.id, p2: this.username, p3: this.userType }]);
     }
 
     goSignOut(){
