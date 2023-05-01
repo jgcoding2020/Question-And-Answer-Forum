@@ -26,6 +26,11 @@ public class AnswerController {
 	@Autowired
 	private AnswerRepository repo;
 	
+	@PostMapping("/void")
+	public void addVoid(@RequestBody Answer answer) {
+		this.repo.save(answer);
+	}
+	
 	@GetMapping("/all")
 	public List<Answer> getAllAnswers(){
 		return this.repo.findAll();
