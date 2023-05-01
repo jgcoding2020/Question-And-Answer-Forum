@@ -43,6 +43,7 @@ export class CreateAnswerComponent implements OnInit{
                     this.questionToAnswer.status = data[i].status;
                     this.questionToAnswer.title = data[i].title;
                     this.questionToAnswer.topic = data[i].topic;
+                    this.questionToAnswer.id = data[i].id;
                 }
             }
         })
@@ -52,11 +53,11 @@ export class CreateAnswerComponent implements OnInit{
         this.answer.datetime = "" + new Date();
         this.answer.description_answer = answerQuestionForm.value.description_answer;
         this.answer.img_src = "" + answerQuestionForm.value.img_src;
-
+        this.answer.question = this.questionToAnswer;
         console.log(this.answer);
-        console.log(typeof this.answer.img_src);
-        console.log(typeof this.answer.datetime);
-        console.log(typeof this.answer.description_answer);
+        console.log(this.answer.img_src);
+        console.log(this.answer.datetime);
+        console.log(this.answer.description_answer);
         this.answerService.addAnswer(this.answer).subscribe();
     }
 
