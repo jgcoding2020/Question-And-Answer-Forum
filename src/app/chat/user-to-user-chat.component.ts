@@ -45,8 +45,8 @@ export class UserToUserChatComponent implements OnInit{
     }
 
     sendChatMessage(message: String){
-        console.log(this.recipientUsername);
-        console.log(message);
+        // console.log(this.recipientUsername);
+        // console.log(message);
         this.chatService.addChat(this.recipientUsername, message).subscribe();
         window.location.reload();
     }

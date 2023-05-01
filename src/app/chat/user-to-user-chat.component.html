@@ -9,6 +9,7 @@
     </div>
 </nav>
 <h2>User To User Chat</h2>
+
 <div class="container">
     <div class="my-chat">
         <h3>{{username}}</h3>
@@ -33,3 +34,4 @@
     <input type="text" [(ngModel)]="this.chat.message" name="Chat Box" placeholder="Type text to send message">
     <button (click)="sendChatMessage(this.chat.message)">Send</button>
 </div>
+
