@@ -45,6 +45,7 @@ public class QuestionController {
 	@PostMapping("/addquestion")
 	public Question addQuestion(@RequestBody QuestionDTO q) {
 		Question newQuestion = new Question(q.getDescription_question(), q.getImage_src(), q.getDatetime(), q.getTopic(), q.getTitle(), Constants.session.getUsername());
+		newQuestion.setImage_src(newQuestion.getImage_src().replace("C:\\fakepath\\", "../../assets/"));
 		return this.repo.save(newQuestion);
 	}
 	
