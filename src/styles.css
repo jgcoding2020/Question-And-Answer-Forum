@@ -1,14 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 /*
     In order to make the home screen's bg image fit the whole screen.
-    You need to have every HTML component leading up to the image have
-    a height and width of 100%, as well as give the app-root component
+    You need to have every HTML component, from html up to the image have
+    a height and width of 100% and margin of 0px, as well as give the app-root component
     the property of "display: block." By default, custom HTML components 
     are styled as "display: inline", which do ont fully respect height 
     and width properties.
     --Juan David
 */
+html{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
 body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
     background-color: rgb(82, 232, 232);
 }
 
@@ -18,4 +27,11 @@ button {
 
 button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+app-root{
+    display: block;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
 }
