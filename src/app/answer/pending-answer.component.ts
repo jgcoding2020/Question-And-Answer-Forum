@@ -46,20 +46,20 @@ export class PendingAnswerComponent implements OnInit {
         console.log(status);
         console.log(answerId);
         this.adminService.answerApproval(status, answerId).subscribe();
-        /* if(confirm(`Answer id: ${answerId} has been approved`)) {
+        if(confirm(`Answer id: ${answerId} has been approved`)) {
             window.location.href = `http://localhost:4200/pending-answer;p1=${this.id};p2=${this.username};p3=${this.userType};`;
-        } */
+        }
     }
 
-    removeAnswer(questionId: number){
-        /* let status = new StatusDTO();
+    removeAnswer(answerId: number){
+        let status = new StatusDTO();
         status.status = "removed";
         console.log(status);
-        console.log(questionId);
-        this.adminService.statusRemoval(status, questionId).subscribe();
-        if(confirm(`Question id: ${questionId} has been removed`)) {
-            window.location.href = `http://localhost:4200/pending-question;p1=${this.id};p2=${this.username};p3=${this.userType};`;
-        } */
+        console.log(answerId);
+        this.adminService.answerRemoval(status, answerId).subscribe();
+        if(confirm(`Answer id: ${answerId} has been removed`)) {
+            window.location.href = `http://localhost:4200/pending-answer;p1=${this.id};p2=${this.username};p3=${this.userType};`;
+        }
     }
 
 
