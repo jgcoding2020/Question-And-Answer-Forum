@@ -7,7 +7,7 @@
         {{username}}
     </div>
 </nav>
-<h2>Pending Questions</h2>
+<h2>Pending Questions: {{pendingQuestions.length}}</h2>
 <div *ngFor="let question of pendingQuestions" class="div-pending-questions">
     <div class="div-image">{{question.image_src}}</div>
     <table class="created-question-table">
