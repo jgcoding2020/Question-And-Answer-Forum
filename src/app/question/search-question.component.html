@@ -24,7 +24,7 @@
 <div *ngIf="!searchToggle">
     <h2><span>Created Questions: {{approvedQuestions.length}}</span></h2>
     <div *ngFor="let question of approvedQuestions" class="div-created-question">
-        <div class="div-image">{{question.image_src}}</div>
+        <img class="div-image" src={{question.image_src}}>
         <table class="created-question-table">
             <tbody>
                 <tr>
