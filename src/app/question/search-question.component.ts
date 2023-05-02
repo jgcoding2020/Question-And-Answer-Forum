@@ -15,6 +15,7 @@ export class SearchQuestionComponent implements OnInit{
     username = "";
     userType = "";
     questions: Question[];
+    approvedQuestions: Question[];
     searchToggle = false;
     topic: string;
     searchQuestion: string;
@@ -27,6 +28,7 @@ export class SearchQuestionComponent implements OnInit{
         this.searchQuestion = "";
         this.searchResult = [];
         this.selectedTopic = "";
+        this.approvedQuestions = [];
     }
 
     ngOnInit(): void {
@@ -35,9 +37,17 @@ export class SearchQuestionComponent implements OnInit{
         this.userType = this.activatedRoute.snapshot.params['p3'];
 
         // lists all questions from database on search page
+        let count = 0;
         this.questionService.getQuestions().subscribe((data: Question[]) => {
             console.log(data);
             this.questions = data;
+
+            for (let i = 0; i < data.length; i++){
+                if (data[i].status == "approved"){
+                    this.approvedQuestions[count] = data[i];
+                    count++;
+                }
+            }
         })
 
     }
@@ -47,10 +57,10 @@ export class SearchQuestionComponent implements OnInit{
         this.searchToggle = true;
         let count = 0;
         this.searchResult = [];
-        for (let i = 0; i < this.questions.length; i++){
+        for (let i = 0; i < this.approvedQuestions.length; i++){
             
-            if (this.questions[i].topic.toLowerCase() == searchQuestionForm.value.topic.toLowerCase()){
-                this.searchResult[count] = this.questions[i];
+            if (this.approvedQuestions[i].topic.toLowerCase() == searchQuestionForm.value.topic.toLowerCase()){
+                this.searchResult[count] = this.approvedQuestions[i];
                 count++;
             }
         }   

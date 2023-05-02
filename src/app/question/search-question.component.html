@@ -22,8 +22,8 @@
 </div>
 
 <div *ngIf="!searchToggle">
-    <h2><span>Created Questions: {{questions.length}}</span></h2>
-    <div *ngFor="let question of questions" class="div-created-question">
+    <h2><span>Created Questions: {{approvedQuestions.length}}</span></h2>
+    <div *ngFor="let question of approvedQuestions" class="div-created-question">
         <div class="div-image">{{question.image_src}}</div>
         <table class="created-question-table">
             <tbody>
