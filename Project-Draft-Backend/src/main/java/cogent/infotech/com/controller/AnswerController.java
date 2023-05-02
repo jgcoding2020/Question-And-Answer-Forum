@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import cogent.infotech.com.dto.StatusDTO;
 import cogent.infotech.com.entities.Answer;
+import cogent.infotech.com.entities.Question;
 import cogent.infotech.com.repositories.AnswerRepository;
 import cogent.infotech.com.security.Constants;
 
@@ -46,6 +49,22 @@ public class AnswerController {
 		return this.repo.findById(id).get();
 	}
 	
+	@PutMapping("/approve")
+	public Answer changeStatus(@RequestBody StatusDTO statusdto, @RequestParam(name = "id") Integer id) {
+		Answer toApprove = getById(id);
+		
+		// If the current logged in user is an admin
+		// Then user may change answer's status attribute
+		// Otherwise no changes will occur
+		if(Constants.session.getUserType().equals("admin")) {
+			toApprove.setStatus(statusdto.getStatus());
+			toApprove.setApproved_by(Constants.session.getUsername());
+		}
+		
+		return this.repo.save(toApprove);
+	}
+	
+	@PutMapping("/put")
 	public Answer updateAnswer(@RequestBody Answer updates, @RequestParam(name = "id") Integer id) {
 		Answer updated = getById(id);
 		
