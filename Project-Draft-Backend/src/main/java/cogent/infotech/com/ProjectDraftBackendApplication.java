@@ -64,8 +64,8 @@ public class ProjectDraftBackendApplication {
 		fillerQuestions.add(new Question("Please show your work. No calculators are allowed", 
 				"../../assets/flower.JPG", "Date time", "Math", "Can you prove that 1+1=2?", "juan23"));
 		fillerQuestions.add(new Question("I do not understand user authentication with JWT. Plz explain like I'm 5.", 
-				"../../assets/lines.JPG", "Date time", "Technology", "What is JWT?", "dm_me_algorithms"));
-		fillerQuestions.add(new Question("Yes", "../../assets/math.jpg", "Date time", "Topic", "Is Arduino better than RaspberryPi?", "juan23"));
+				"../../assets/lines.jpg", "Date time", "Technology", "What is JWT?", "dm_me_algorithms"));
+		fillerQuestions.add(new Question("Yes", "../../assets/math.png", "Date time", "Topic", "Is Arduino better than RaspberryPi?", "juan23"));
 		questionRepo.saveAll(fillerQuestions);
 		
 		List<Answer> fillerAnswers = new ArrayList<>();
@@ -74,7 +74,7 @@ public class ProjectDraftBackendApplication {
 		fillerAnswers.add(new Answer("This is an answer description. It is very helpful and addresses all of the asker's concerns without any hint of disdain.",
 				"../../assets/event.png",y, fillerQuestions.get(0), "juan23"));
 		fillerAnswers.add(new Answer("JWT stands for JSON Web Token",
-				"../../assets/lines.JPG", y,fillerQuestions.get(4), "raaaa"));
+				"../../assets/lines.jpg", y,fillerQuestions.get(4), "raaaa"));
 		fillerAnswers.add(new Answer("JWT is a way of storing a user's information on the client side, so that user information doesn't need to be passed and validated constantly through the server.",
 				"../../assets/drinks.JPG",y, fillerQuestions.get(4), "anuuuu"));
 		fillerAnswers.add(new Answer("This 'answer' is not the least bit helpful. It berates the original asker on his ignorance and provides no useful links. It only serves to feed the responder's ego.",

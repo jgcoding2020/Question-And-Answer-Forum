@@ -10,14 +10,14 @@
 </nav>
 <h1>User Home</h1>
 
-<h2><span>Your Created Questions</span></h2>
+<h2><span>Your Created Questions: {{userQuestions.length}}</span></h2>
 <div *ngFor="let question of userQuestions" class="div-created-question">
-    <div class="div-image">{{question.image_src}}</div>
+    <img class="div-image" src={{question.image_src}} alt="Image not available">
     <table class="created-question-table">
         <tbody>
             <tr>
-                <td>Id</td>
-                <td>{{question.id}}</td>
+                <td>Username</td>
+                <td>{{question.qcreated_by}}</td>
             </tr>
             <tr>
                 <td>Title</td>
@@ -28,8 +28,12 @@
                 <td>{{question.topic}}</td>
             </tr>
             <tr>
-                <td>description</td>
+                <td>Description</td>
                 <td>{{question.description_question}}</td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td>{{question.status}}</td>
             </tr>
         </tbody>
     </table>

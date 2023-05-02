@@ -205,6 +205,8 @@ show tables;
 select * from person;
 insert into person(person_id, person_name, person_age, person_salary) values (1,2,'j',4);
 show databases;
+drop database cogent_do_connect;
+create database cogent_do_connect;
 use cogent_do_connect;
 show tables;
 select * from answers;

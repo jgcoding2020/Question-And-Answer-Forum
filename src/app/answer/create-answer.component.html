@@ -9,23 +9,14 @@
     </div>
 </nav>
 
-<h2>Create Answer</h2>
-<div class="div-create-answer">
-    <form class="answer-form" #AnswerQuestionForm="ngForm" (ngSubmit)="onSubmitAnswer(AnswerQuestionForm)">
-        <textarea class="answer-text-area" type="text" name="description_answer" [(ngModel)]="answer.description_answer" placeholder="Your answer" required></textarea>
-        <input class="file-upload" type="file" [(ngModel)]="answer.img_src" name="img_src" onchange="console.log(event.target.files)" required>
-        <button class="submit-answer-button" type="submit">Submit</button>
-    </form>
-</div>
-
 <h2>Question to Answer</h2>
 <div  class="div-created-question">
     <img class="div-image" src={{questionToAnswer.image_src}} alt="Image not available">
     <table class="created-question-table">
         <tbody>
             <tr>
-                <td>Id</td>
-                <td>{{questionToAnswer.id}}</td>
+                <td>Username</td>
+                <td>{{questionToAnswer.qcreated_by}}</td>
             </tr>
             <tr>
                 <td>Title</td>
@@ -41,4 +32,13 @@
             </tr>
         </tbody>
     </table>
+</div>
+
+<h2>Create Answer</h2>
+<div class="div-create-answer">
+    <form class="answer-form" #AnswerQuestionForm="ngForm" (ngSubmit)="onSubmitAnswer(AnswerQuestionForm)">
+        <textarea class="answer-text-area" type="text" name="description_answer" [(ngModel)]="answer.description_answer" placeholder="Your answer" required></textarea>
+        <input class="file-upload" type="file" [(ngModel)]="answer.img_src" name="img_src" onchange="console.log(event.target.files)" required>
+        <button class="submit-answer-button" type="submit">Submit</button>
+    </form>
 </div>

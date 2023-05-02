@@ -62,6 +62,7 @@ export class CreateQuestionComponent implements OnInit{
         this.questionDTO.datetime = "" + new Date();
         this.questionDTO.topic = questionForm.value.topic;
         this.questionService.addQuestion(this.questionDTO).subscribe();
+        alert(`You have successfully added a question to be answered!!!`)
     }
 
     refresh()

@@ -34,7 +34,7 @@ export class ApprovedAnswerComponent implements OnInit{
         this.username = this.activatedRoute.snapshot.params['p2'];
         this.userType = this.activatedRoute.snapshot.params['p3'];
         this.questionId = this.activatedRoute.snapshot.params['p4'];
-
+        
         this.questionService.getQuestions().subscribe((data: Question[]) => {
             console.log(data);
             this.questions = data;
@@ -51,12 +51,13 @@ export class ApprovedAnswerComponent implements OnInit{
             this.answers = data;
 
             let count = 0;
-            for (let i = 0; i < data.length; i++){
-                if (data[i].status == "approved"){
+            for (let i = 0; i < this.answers.length; i++){
+                if (this.answers[i].status == "approved" && this.answers[i].question.id == this.questionId){
                     this.approvedAnswers[count] = data[i];
                     count++;
                 }
             }
+            console.log(this.approvedAnswers);
         })
     }
 
