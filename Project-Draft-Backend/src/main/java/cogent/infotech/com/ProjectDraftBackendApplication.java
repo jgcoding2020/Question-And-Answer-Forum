@@ -58,7 +58,7 @@ public class ProjectDraftBackendApplication {
 		List<Question> fillerQuestions = new ArrayList<>();
 		fillerQuestions.add(new Question("Question Description", "../../assets/homepage.jpg", "Date time", "Topic", "Title", "sancta27"));
 		fillerQuestions.add(new Question("I've been stuck for a week trying to pass an authorization header from angular to Spring. Pls help!", 
-					"../../assets/beach.JPG", "Date time", "Technology", "How do HTTP headers work?", "raaaa"));
+					"../../assets/beach.jpg", "Date time", "Technology", "How do HTTP headers work?", "raaaa"));
 		fillerQuestions.add(new Question("My gf and I left the fridge open yesterday. Is this a sign that our relationship is falling apart?",
 					"../../assets/drinks.JPG", "Date time", "Relationship", "Should I break up with my girlfriend?", "raaaa"));
 		fillerQuestions.add(new Question("Please show your work. No calculators are allowed", 

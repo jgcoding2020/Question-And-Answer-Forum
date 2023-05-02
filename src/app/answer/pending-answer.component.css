@@ -51,6 +51,7 @@ button {
     border: solid black;
     width: 74.5%;
     margin: 10px auto;
+    display: block;
 }
 
 .created-answer-table {
@@ -58,7 +59,6 @@ button {
     border-collapse: collapse;
     width: 75%;
     margin:auto;
-
 }
 
 tr:nth-child(even) {

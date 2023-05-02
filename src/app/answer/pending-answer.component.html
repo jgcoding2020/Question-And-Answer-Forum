@@ -9,7 +9,7 @@
 </nav>
 <h2>Pending Answers: {{pendingAnswers.length}}</h2>
 <div *ngFor="let answer of pendingAnswers" class="div-pending-answers">
-    <div class="div-image">{{answer.img_src}}</div>
+    <img class="div-image" src={{answer.img_src}} alt="Image not available at source location">
     <table class="created-answer-table">
         <tbody>
             <tr>

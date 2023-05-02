@@ -9,7 +9,7 @@
 </nav>
 <h2>Pending Questions: {{pendingQuestions.length}}</h2>
 <div *ngFor="let question of pendingQuestions" class="div-pending-questions">
-    <div class="div-image">{{question.image_src}}</div>
+    <img class="div-image" src={{question.image_src}} alt="Image not available">
     <table class="created-question-table">
         <tbody>
             <tr>

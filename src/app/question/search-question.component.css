@@ -81,8 +81,9 @@ input {
 
 .div-image {
     border: solid black;
-    width: 74.5%;
+    width: 75%;
     margin: 10px auto;
+    display:block;
 }
 
 .created-question-table {

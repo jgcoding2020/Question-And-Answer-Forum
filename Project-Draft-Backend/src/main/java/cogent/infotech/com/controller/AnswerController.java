@@ -41,6 +41,7 @@ public class AnswerController {
 	
 	@PostMapping("/add")
 	public Answer addAnswer(@RequestBody Answer answer) {
+		answer.setImg_src(answer.getImg_src().replace("C:\\fakepath\\", "../../assets/"));
 		return this.repo.save(answer);
 	}
 	
