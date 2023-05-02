@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import cogent.infotech.com.dto.ChatDTO;
@@ -46,13 +47,16 @@ public class ChatController {
 	// This way, the chats can all be printed on the left
 	// May not be necessary, but I hav it here just in case
 	// -- Juan David
-	@GetMapping("/sender")
-	public List<Chat> getChatAsSender(){
+	@GetMapping("/mychats")
+	public List<Chat> getChatAsSender(@RequestParam (name = "recipient_username") String chatRecipient){
 		Iterator allChats = getAllChats().iterator();
 		List<Chat> senderChats = new ArrayList<>();
 		while(allChats.hasNext()) {
 			Chat thisChat = (Chat)allChats.next();
-			if(Constants.session.getUsername().equals(thisChat.getSender())) {
+			if(
+					Constants.session.getUsername().equals(thisChat.getSender())
+					&& chatRecipient.equals(thisChat.getRecipient())
+					) {
 				senderChats.add(thisChat);
 			}
 		}
@@ -64,13 +68,15 @@ public class ChatController {
 	// This way, the chats can all be printed on the left
 	// May not be necessary, but I hav it here just in case
 	// -- Juan David
-	@GetMapping("/receiver")
-	public List<Chat> getChatAsReceiver(){
+	@GetMapping("/theirchats")
+	public List<Chat> getChatAsReceiver(@RequestParam (name = "recipient_username") String chatRecipient){
 		Iterator allChats = getAllChats().iterator();
 		List<Chat> receiverChats = new ArrayList<>();
 		while(allChats.hasNext()) {
 			Chat thisChat = (Chat)allChats.next();
-			if(Constants.session.getUsername().equals(thisChat.getRecipient())) {
+			if(
+					Constants.session.getUsername().equals(thisChat.getRecipient())
+					&& chatRecipient.equals(thisChat.getSender())) {
 				receiverChats.add(thisChat);
 			}
 		}

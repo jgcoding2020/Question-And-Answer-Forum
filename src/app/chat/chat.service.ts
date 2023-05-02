@@ -29,11 +29,11 @@ export class ChatService{
         return this.http.get<Chat[]>(`${this.baseUrl}/all`);
     }
 
-    getMyChats():Observable<Chat[]>{
-        return this.http.get<Chat[]>(`${this.baseUrl}/all`);
+    getMyChats(recipientUsername: String):Observable<Chat[]>{
+        return this.http.get<Chat[]>(`${this.baseUrl}/mychats?recipient_username=${recipientUsername}`);
     }
 
-    getTheirChats():Observable<Chat[]>{
-        return this.http.get<Chat[]>(`${this.baseUrl}/all`);
+    getTheirChats(recipientUsername: String):Observable<Chat[]>{
+        return this.http.get<Chat[]>(`${this.baseUrl}/theirchats?recipient_username=${recipientUsername}`);
     }
 }

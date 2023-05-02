@@ -66,6 +66,8 @@ h3 {
     padding: 10px;
     border-radius: 15px;
     background-color: aliceblue;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 /* .my-chat-bubble{
@@ -87,6 +89,8 @@ h3 {
     padding: 10px;
     border-radius: 15px;
     background-color: aliceblue;
+    word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .div-chat-box{

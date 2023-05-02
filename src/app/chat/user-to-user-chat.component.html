@@ -13,19 +13,21 @@
 <div class="container">
     <div class="div-my-chat">
         <h3>{{username}}</h3>
-        <div class="table-my-chat" *ngFor="let chat of allChats">
-            <div *ngIf="chat.sender==this.username && chat.recipient==recipientUsername">
+        <div class="table-my-chat" *ngFor="let chat of myChats">
+            {{chat.message}}
+            <!-- <div *ngIf="chat.sender==this.username && chat.recipient==recipientUsername">
                 <div class="my-chat-bubble">{{chat.message}}</div>
-            </div>
+            </div> -->
         </div>
     </div>
 
     <div class="div-their-chat">
         <h3>{{recipientUsername}}</h3>
-        <div class="table-their-chat" *ngFor="let chat of allChats">
-            <div *ngIf="chat.recipient==this.username &&chat.sender==recipientUsername">
+        <div class="table-their-chat" *ngFor="let chat of theirChats">
+            {{chat.message}}
+            <!-- <div *ngIf="chat.recipient==this.username &&chat.sender==recipientUsername">
                 <div class="their-chat-bubble">{{chat.message}}</div>
-            </div>
+            </div> -->
         </div>
     </div>
 
