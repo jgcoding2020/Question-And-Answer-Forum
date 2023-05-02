@@ -42,6 +42,22 @@ export class UserToUserChatComponent implements OnInit{
                 console.log(this.allChats);
             }
         );
+
+        this.chatService.getMyChats(this.recipientUsername).subscribe(
+            (data: Chat[])=>{
+                this.myChats = data;
+                console.log(this.myChats);
+            }
+        );
+
+        this.chatService.getTheirChats(this.recipientUsername).subscribe(
+            (data: Chat[])=>{
+                this.theirChats = data;
+                console.log(this.theirChats);
+            }
+        )
+
+
     }
 
     sendChatMessage(message: String){
