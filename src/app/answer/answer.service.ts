@@ -18,4 +18,9 @@ export class AnswerService {
     addAnswer(answer: Answer): Observable<Answer> {
         return this.http.post<Answer>(this.baseUrl + "/add", answer);
     }
+
+    // get all answers from the database
+    getAnswers(): Observable<Answer[]> {
+        return this.http.get<Answer[]>(this.baseUrl + "/all")
+    }
 }

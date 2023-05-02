@@ -5,6 +5,7 @@ import { Admin } from './admin';
 import { Login } from './login';
 import { StatusDTO } from './statusDTO';
 import { Question } from '../question/question';
+import { Answer } from '../answer/answer';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +14,8 @@ import { Question } from '../question/question';
 export class AdminService {
 
     private baseUrl = "http://localhost:8080/api/user";
-    private approvalBaseUrl = "http://localhost:8080/api/questions/approve?id=";
+    private questionBaseUrl = "http://localhost:8080/api/questions/approve?id=";
+    private answerBaseUrl = "http://localhost:8080/api/answer/approve?id=";
 
     constructor(private http: HttpClient){
 
@@ -34,11 +36,19 @@ export class AdminService {
         return this.http.post<Admin>(this.baseUrl + "/getLogin", login);
     }
 
-    statusApproval(status: StatusDTO, questionId: number): Observable<Question>{
-        return this.http.put<Question>(this.approvalBaseUrl + questionId, status);
+    questionApproval(status: StatusDTO, questionId: number): Observable<Question>{
+        return this.http.put<Question>(this.questionBaseUrl + questionId, status);
     }
 
-    statusRemoval(status: StatusDTO, questionId: number): Observable<Question>{
-        return this.http.put<Question>(this.approvalBaseUrl + questionId, status);
+    questionRemoval(status: StatusDTO, questionId: number): Observable<Question>{
+        return this.http.put<Question>(this.questionBaseUrl + questionId, status);
+    }
+
+    answerApproval(status: StatusDTO, answerId: number): Observable<Answer>{
+        return this.http.put<Answer>(this.answerBaseUrl + answerId, status);
+    }
+
+    answerRemoval(status: StatusDTO, answerId: number): Observable<Answer>{
+        return this.http.put<Answer>(this.answerBaseUrl + answerId, status);
     }
 }

@@ -59,6 +59,9 @@ export class CreateAnswerComponent implements OnInit{
         console.log(this.answer.datetime);
         console.log(this.answer.description_answer);
         this.answerService.addAnswer(this.answer).subscribe();
+        if(confirm("You have successfully submitted your answer!")) {
+            window.location.href = `http://localhost:4200/create-answer;p1=${this.UserId};p2=${this.username};p3=${this.userType};p4=${this.questionId}`;
+        }
     }
 
     goCreateQuestion(){

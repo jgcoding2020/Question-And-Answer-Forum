@@ -38,3 +38,56 @@ button {
     display: inline-block;
     text-align: center;
 }
+
+.div-pending-answers {
+    width: 90%;
+    padding: 30px;
+    border: solid black;
+    border-radius: 10px;
+    margin: 25px auto;
+}
+
+.div-image {
+    border: solid black;
+    width: 74.5%;
+    margin: 10px auto;
+}
+
+.created-answer-table {
+    border: black solid;
+    border-collapse: collapse;
+    width: 75%;
+    margin:auto;
+
+}
+
+tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
+td {
+    border: solid black;
+    padding: 10px;
+}
+
+.div-approve-remove {
+    display: flex;
+    justify-content: space-evenly;
+    width: 75%;
+    margin: auto;
+    margin-top:25px;
+}
+
+.approve-button, .remove-button {
+    padding: 10px;
+    border: solid black;
+    border-radius: 15px;
+}
+
+.approve-button {
+    background-color: rgb(117, 234, 117);
+}
+
+.remove-button {
+    background-color: rgb(223, 71, 71);
+}

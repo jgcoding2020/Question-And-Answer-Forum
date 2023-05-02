@@ -7,4 +7,23 @@
         {{username}}
     </div>
 </nav>
-<h2>Pending Answer</h2>
+<h2>Pending Answers</h2>
+<div *ngFor="let answer of pendingAnswers" class="div-pending-answers">
+    <div class="div-image">{{answer.img_src}}</div>
+    <table class="created-answer-table">
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{answer.id}}</td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>{{answer.description_answer}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="div-approve-remove">
+        <button class="approve-button" (click)="approveAnswer(answer.id)">approve</button>
+        <button class="remove-button" (click)="removeAnswer(answer.id)">remove</button>
+    </div>
+</div>
