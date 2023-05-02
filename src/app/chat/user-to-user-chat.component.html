@@ -11,27 +11,26 @@
 <h2>User To User Chat</h2>
 
 <div class="container">
-    <div class="my-chat">
+    <div class="div-my-chat">
         <h3>{{username}}</h3>
-        <table *ngFor="let chat of allChats">
-            <tbody *ngIf="chat.sender==this.username && chat.recipient==recipientUsername">
-                <tr class="my-chat-bubble">{{chat.message}}</tr>
-            </tbody>
-        </table>
+        <div class="table-my-chat" *ngFor="let chat of allChats">
+            <div *ngIf="chat.sender==this.username && chat.recipient==recipientUsername">
+                <div class="my-chat-bubble">{{chat.message}}</div>
+            </div>
+        </div>
     </div>
-    
-    <div class="their-chat">
-        <h3>{{recipientUsername}}</h3>
-        <table *ngFor="let chat of allChats">
-            <tbody *ngIf="chat.recipient==this.username &&chat.sender==recipientUsername">
-                <tr class="their-chat-bubble">{{chat.message}}</tr>
-            </tbody>
-        </table>
-    </div>
-    
-</div>
-<div class="chat-box">
-    <input type="text" [(ngModel)]="this.chat.message" name="Chat Box" placeholder="Type text to send message">
-    <button (click)="sendChatMessage(this.chat.message)">Send</button>
-</div>
 
+    <div class="div-their-chat">
+        <h3>{{recipientUsername}}</h3>
+        <div class="table-their-chat" *ngFor="let chat of allChats">
+            <div *ngIf="chat.recipient==this.username &&chat.sender==recipientUsername">
+                <div class="their-chat-bubble">{{chat.message}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="div-chat-box">
+        <textarea type="text" [(ngModel)]="this.chat.message" name="Chat Box" placeholder="Type text to send message"></textarea>
+        <button class="send-button" (click)="sendChatMessage(this.chat.message)">Send</button>
+    </div>
+</div>

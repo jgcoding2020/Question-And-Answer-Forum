@@ -40,36 +40,69 @@ button {
 }
 
 .container{
+    width: 85%;
+    padding: 25px;
     border: solid black;
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-evenly;
+    border-radius: 10px;
+    margin: 25px auto;
+    text-align: center;
 }
 
-.my-chat{
-    border: solid brown;
+h3 {
+    font-size:xx-large;
+    font-family: 'Courier New', Courier, monospace;
+}
+.div-my-chat {
+    width: 45%;
+    margin:auto;
+    display: inline-block;
+}
+
+.table-my-chat{
+    border: solid black;
+    width: 49%;
+    margin: 15px auto;
     border-collapse: collapse;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: aliceblue;
 }
 
-.their-chat{
-    border: solid yellow;
+/* .my-chat-bubble{
+    border: solid black;
+}
+ */
+
+.div-their-chat {
+    display: inline-block;
+    width: 45%;
+    margin:auto;
 }
 
-.chat-box{
-    width: 90%;
-    height: 50px;
-    border: solid salmon;
+.table-their-chat{
+    border: solid black;
+    width: 49%;
+    margin: 15px auto;
+    border-collapse: collapse;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: aliceblue;
+}
+
+.div-chat-box{
+    width: 100%;
+    border: solid black;
     margin: auto;
     display: flex;
     justify-content: space-evenly;
 }
 
-.chat-box input{
-    width: 70%;
-    height: 60%;
+textarea{
+    width: 100%;
+    margin: auto;
 }
 
-.my-chat-bubble{
-    border: solid violet;
+.send-button {
+    background-color: rgb(117, 234, 117);
 }
+
