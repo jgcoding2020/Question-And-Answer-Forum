@@ -56,29 +56,29 @@ public class ProjectDraftBackendApplication {
 		
 		
 		List<Question> fillerQuestions = new ArrayList<>();
-		fillerQuestions.add(new Question("Question Description", "C:\\fakepath\\homepage.jpg", "Date time", "Topic", "Title", "sancta27"));
+		fillerQuestions.add(new Question("Question Description", "../../assets/homepage.jpg", "Date time", "Topic", "Title", "sancta27"));
 		fillerQuestions.add(new Question("I've been stuck for a week trying to pass an authorization header from angular to Spring. Pls help!", 
-					"C:\\fakepath\\beach.JPG", "Date time", "Technology", "How do HTTP headers work?", "raaaa"));
+					"../../assets/beach.JPG", "Date time", "Technology", "How do HTTP headers work?", "raaaa"));
 		fillerQuestions.add(new Question("My gf and I left the fridge open yesterday. Is this a sign that our relationship is falling apart?",
-					"C:\\fakepath\\drinks.JPG", "Date time", "Relationship", "Should I break up with my girlfriend?", "raaaa"));
+					"../../assets/drinks.JPG", "Date time", "Relationship", "Should I break up with my girlfriend?", "raaaa"));
 		fillerQuestions.add(new Question("Please show your work. No calculators are allowed", 
-				"C:\\fakepath\\flower.JPG", "Date time", "Math", "Can you prove that 1+1=2?", "juan23"));
+				"../../assets/flower.JPG", "Date time", "Math", "Can you prove that 1+1=2?", "juan23"));
 		fillerQuestions.add(new Question("I do not understand user authentication with JWT. Plz explain like I'm 5.", 
-				"C:\\fakepath\\lines.JPG", "Date time", "Technology", "What is JWT?", "dm_me_algorithms"));
-		fillerQuestions.add(new Question("Yes", "C:\\fakepath\\math.jpg", "Date time", "Topic", "Is Arduino better than RaspberryPi?", "juan23"));
+				"../../assets/lines.JPG", "Date time", "Technology", "What is JWT?", "dm_me_algorithms"));
+		fillerQuestions.add(new Question("Yes", "../../assets/math.jpg", "Date time", "Topic", "Is Arduino better than RaspberryPi?", "juan23"));
 		questionRepo.saveAll(fillerQuestions);
 		
 		List<Answer> fillerAnswers = new ArrayList<>();
 		fillerAnswers.add(new Answer("Have you tried looking at the Angular documentation?",
-				 "C:\\fakepath\\home.jpg",y, fillerQuestions.get(1), "davi23"));
+				 "../../assets/home.jpg",y, fillerQuestions.get(1), "davi23"));
 		fillerAnswers.add(new Answer("This is an answer description. It is very helpful and addresses all of the asker's concerns without any hint of disdain.",
-				"C:\\fakepath\\event.png",y, fillerQuestions.get(0), "juan23"));
+				"../../assets/event.png",y, fillerQuestions.get(0), "juan23"));
 		fillerAnswers.add(new Answer("JWT stands for JSON Web Token",
-				"C:\\fakepath\\lines.JPG", y,fillerQuestions.get(4), "raaaa"));
+				"../../assets/lines.JPG", y,fillerQuestions.get(4), "raaaa"));
 		fillerAnswers.add(new Answer("JWT is a way of storing a user's information on the client side, so that user information doesn't need to be passed and validated constantly through the server.",
-				"C:\\fakepath\\drinks.JPG",y, fillerQuestions.get(4), "anuuuu"));
+				"../../assets/drinks.JPG",y, fillerQuestions.get(4), "anuuuu"));
 		fillerAnswers.add(new Answer("This 'answer' is not the least bit helpful. It berates the original asker on his ignorance and provides no useful links. It only serves to feed the responder's ego.",
-				"C:\\fakepath\\flower.JPG",y, fillerQuestions.get(0), "davi23"));
+				"../../assets/flower.JPG",y, fillerQuestions.get(0), "davi23"));
 		answerRepo.saveAll(fillerAnswers);
 		
 		//Simulation of a chat
