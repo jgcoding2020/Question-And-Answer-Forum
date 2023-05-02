@@ -11,17 +11,19 @@
 <h2>Chat</h2>
 <div class="chat-list">
     <table class="user-chat-table">
-        <!--How do I align the table header to the left??-->
-        <!--Juan David-->
-        <thead align="left">
+        <thead>
             <th>Name</th>
             <th>Username</th>
+            <th>Start Chat</th>
         </thead>
         <tbody *ngFor="let user of trueUsers">
             <tr>
                 <td>{{user.username}}</td>
                 <td>{{user.name}}</td>
-                <button class="start-chat-button" (click)="startChat(user.username)">Start Chat</button>
+                <td><button class="start-chat-button" (click)="startChat(user.username)">Start Chat</button></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
             </tr>
         </tbody>
     </table>
