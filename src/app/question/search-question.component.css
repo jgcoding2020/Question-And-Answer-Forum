@@ -116,3 +116,11 @@ td {
     border-radius: 15px;
     background-color: rgb(117, 234, 117);
 }
+
+.show-answers-button {
+    padding: 10px;
+    border: solid black;
+    border-radius: 15px;
+    background-color: rgb(6, 247, 247);
+    color: black;
+}

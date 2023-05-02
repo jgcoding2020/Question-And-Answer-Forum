@@ -8,4 +8,53 @@
         {{username}}
     </div>
 </nav>
-<h2>Approved Answer</h2>
+<h2>Approved Answers To Question: {{questionToAnswer.id}}</h2>
+
+<div class="div-created-question">
+    <img class="div-image" src={{questionToAnswer.image_src}} alt="Image not available">
+    <table class="created-question-table">
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{questionToAnswer.id}}</td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>{{questionToAnswer.title}}</td>
+            </tr>
+            <tr>
+                <td>Topic</td>
+                <td>{{questionToAnswer.topic}}</td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>{{questionToAnswer.description_question}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2>Answers</h2>
+<div *ngFor="let answer of approvedAnswers" class="div-created-question">
+    <img class="div-image" src={{answer.img_src}} alt="Image not available">
+    <table class="created-question-table">
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{questionToAnswer.id}}</td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>{{questionToAnswer.title}}</td>
+            </tr>
+            <tr>
+                <td>Topic</td>
+                <td>{{questionToAnswer.topic}}</td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>{{questionToAnswer.description_question}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

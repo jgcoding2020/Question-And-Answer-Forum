@@ -73,10 +73,12 @@ button {
     border-radius: 15px;
     background-color: rgb(117, 234, 117);
 }
+
 .div-image {
     border: solid black;
     width: 74.5%;
     margin: 10px auto;
+    display: block;
 }
 
 .created-question-table {

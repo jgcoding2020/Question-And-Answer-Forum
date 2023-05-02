@@ -47,6 +47,7 @@
         </table>
         <div class="div-create-answer-button">
             <button class="create-answer-button" (click)="goCreateAnswer(question.id)">Answer Question</button>
+            <button class="show-answers-button" type="button" (click)="showAnswers(question.id)">Show Answers</button>
         </div>
     </div>
 </div>
@@ -54,7 +55,7 @@
 <div *ngIf="searchToggle">
     <h2><span>Search Results: {{searchResult.length}}</span></h2>
     <div *ngFor="let question of searchResult" class="div-created-question">
-        <div class="div-image">{{question.image_src}}</div>
+        <img class="div-image" src={{question.image_src}} alt="Image not available">
         <table class="created-question-table">
             <tbody>
                 <tr>
@@ -77,6 +78,7 @@
         </table>
         <div class="div-create-answer-button">
             <button class="create-answer-button" (click)="goCreateAnswer(question.id)">Answer Question</button>
+            <button class="show-answers-button" type="button" (click)="showAnswers(question.id)">Show Answers</button>
         </div>
     </div>
 </div>

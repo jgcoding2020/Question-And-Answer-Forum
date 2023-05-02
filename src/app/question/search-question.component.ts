@@ -66,6 +66,10 @@ export class SearchQuestionComponent implements OnInit{
         }   
     }
 
+    showAnswers(questionId: number){
+        this.router.navigate(['approved-answer', {p1: this.UserId, p2: this.username, p3: this.userType, p4: questionId}]);
+    }
+
     goCreateAnswer(questionId: number){
         this.router.navigate(['create-answer', {p1: this.UserId, p2: this.username, p3: this.userType, p4: questionId}]);
     }
