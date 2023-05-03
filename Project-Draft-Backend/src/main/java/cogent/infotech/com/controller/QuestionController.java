@@ -124,13 +124,22 @@ public class QuestionController {
 	 * @param id
 	 * @return Question object whose id field matches the http parameter
 	 */
-	@DeleteMapping("/deletequestionbyid")
-	public String deleteQuestionById(@RequestParam(name = "id") Integer id) {
+//	@DeleteMapping("/delete")
+//	public String deleteQuestionById(@RequestParam(name = "id") Integer id) {
+////		Optional<Question> toDelete = getQuestionById(id);
+////		repo.delete(toDelete.get());
+//		Question toDelete = getQuestionById(id);
+//		repo.delete(toDelete);
+//		return "Question succesfully deleted";
+//	}
+	
+	@DeleteMapping("/delete")
+	public void deleteQuestionById(@RequestParam(name = "id") Integer id) {
 //		Optional<Question> toDelete = getQuestionById(id);
 //		repo.delete(toDelete.get());
 		Question toDelete = getQuestionById(id);
 		repo.delete(toDelete);
-		return "Question succesfully deleted";
+		//return "Question succesfully deleted";
 	}
 	
 	/**

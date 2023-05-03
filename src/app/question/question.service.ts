@@ -28,4 +28,8 @@ export class QuestionService{
     searchQuestion(search: String, topic: String):Observable<Question[]>{
         return this.http.get<Question[]>(`${this.baseUrl}/search?search=${search}&topic=${topic}`);
     }
+
+    deleteQuestion(id: number):Observable<Question>{
+        return this.http.delete<Question>(`${this.baseUrl}/delete?id=${id}`);
+    }
 }
