@@ -43,8 +43,6 @@ export class PendingQuestionComponent implements OnInit{
     approveQuestion(questionId: number){
         let status = new StatusDTO();
         status.status = "approved";
-        console.log(status);
-        console.log(questionId);
         this.adminService.questionApproval(status, questionId).subscribe();
         if(confirm(`Question id: ${questionId} has been approved`)) {
             window.location.href = `http://localhost:4200/pending-question;p1=${this.id};p2=${this.username};p3=${this.userType};`;

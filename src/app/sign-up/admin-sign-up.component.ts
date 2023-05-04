@@ -28,7 +28,6 @@ export class AdminSignUpComponent implements OnInit {
 
     ngOnInit(): void {
         this.adminService.getAdmins().subscribe((data: Admin[])=>{
-            console.log(data);
             this.admins = data;
         })
     }

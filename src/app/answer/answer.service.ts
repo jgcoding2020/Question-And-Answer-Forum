@@ -23,4 +23,8 @@ export class AnswerService {
     getAnswers(): Observable<Answer[]> {
         return this.http.get<Answer[]>(this.baseUrl + "/all")
     }
+
+    deleteAnswer(answerId: number): Observable<Answer>{
+        return this.http.delete<Answer>(`${this.baseUrl}/delete?id=${answerId}`);
+    }
 }

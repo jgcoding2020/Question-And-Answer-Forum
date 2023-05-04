@@ -98,10 +98,10 @@ public class AnswerController {
 	}
 	
 	@DeleteMapping("/delete")
-	public String deleteAnswerById(@RequestParam(name = "id")Integer id) {
+	public void deleteAnswerById(@RequestParam(name = "id")Integer id) {
 		Answer toDelete = getById(id);
 		repo.delete(toDelete);
-		return "";
+		//return "";
 	}
 	
 	@GetMapping("/question")
