@@ -56,6 +56,11 @@ export class UserHomeComponent implements OnInit {
         })
     }
 
+    showAnswers(questionId: number){
+        this.router.navigate(['approved-answer', {p1: this.id, p2: this.username, p3: this.userType, p4: questionId}]);
+    }
+
+
     goCreateQuestion() {
         this.router.navigate(['create-question', { p1: this.id, p2: this.username, p3: this.userType }]);
     }
