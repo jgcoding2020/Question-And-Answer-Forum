@@ -8,7 +8,7 @@ import { Answer } from './answer'
 
 export class AnswerService {
 
-    private baseUrl = "http://localhost:8080/api/answer";
+    private baseUrl = "http://localhost::8080/api/answer";
 
     constructor(private http: HttpClient){
 
