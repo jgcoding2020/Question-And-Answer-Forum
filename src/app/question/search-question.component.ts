@@ -21,6 +21,7 @@ export class SearchQuestionComponent implements OnInit{
     searchQuestion: string;
     searchResult: Question[];
     selectedTopic: string;
+    topics: Set<string>;
     
     constructor(private router: Router, private activatedRoute: ActivatedRoute, private questionService: QuestionService){
         this.questions = [];
@@ -29,6 +30,7 @@ export class SearchQuestionComponent implements OnInit{
         this.searchResult = [];
         this.selectedTopic = "";
         this.approvedQuestions = [];
+        this.topics = new Set();
     }
 
     ngOnInit(): void {
@@ -48,10 +50,13 @@ export class SearchQuestionComponent implements OnInit{
                     count++;
                 }
             }
+
+            // creates set of unique existing topics to display in topic option select
+            for (let i = 0; i < this.approvedQuestions.length; i++){
+                this.topics.add(this.approvedQuestions[i].topic.toLowerCase());
+            }
+            console.log(this.topics);
         })
-
-        console.log("Search questioins on init");
-
     }
 
     //finds matches to question topics search in database
@@ -59,31 +64,13 @@ export class SearchQuestionComponent implements OnInit{
         this.searchToggle = true;
         let count = 0;
         this.searchResult = [];
-
-        // ****OLD CODE****
-        // Search questions by Topic
-        // for (let i = 0; i < this.approvedQuestions.length; i++){
+        for (let i = 0; i < this.approvedQuestions.length; i++){
             
-        //     if (this.approvedQuestions[i].topic.toLowerCase() == searchQuestionForm.value.topic.toLowerCase()){
-        //         this.searchResult[count] = this.approvedQuestions[i];
-        //         count++;
-        //     }
-        // }  
-        // ****OLD CODE****
-        // --Juan David 
-
-        console.log("Search questions onSubmitSearch("+searchQuestionForm.value.searchQuestion+", "+searchQuestionForm.value.topic+")");
-        this.searchQuestions(this.searchQuestion, searchQuestionForm.value.topic);
-        
-    }
-
-    searchQuestions(search: String, topic: String){
-        console.log("searchQuestions("+search+", "+topic+")");
-        this.questionService.searchQuestion(search, topic).subscribe(
-            (data: Question[])=>{
-                this.searchResult = data;
+            if (this.approvedQuestions[i].topic.toLowerCase() == searchQuestionForm.value.topic.toLowerCase()){
+                this.searchResult[count] = this.approvedQuestions[i];
+                count++;
             }
-        );
+        }   
     }
 
     showAnswers(questionId: number){

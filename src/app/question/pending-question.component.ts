@@ -43,24 +43,20 @@ export class PendingQuestionComponent implements OnInit{
     approveQuestion(questionId: number){
         let status = new StatusDTO();
         status.status = "approved";
+        console.log(status);
+        console.log(questionId);
         this.adminService.questionApproval(status, questionId).subscribe();
         if(confirm(`Question id: ${questionId} has been approved`)) {
             window.location.href = `http://localhost:4200/pending-question;p1=${this.id};p2=${this.username};p3=${this.userType};`;
         }
     }
 
-    // Make this method call questionServie.deleteQuestion()
     removeQuestion(questionId: number){
-        // let status = new StatusDTO();
-        // status.status = "removed";
-        // console.log(status);
-        // console.log(questionId);
-        // this.adminService.questionRemoval(status, questionId).subscribe();
-        // if(confirm(`Question id: ${questionId} has been removed`)) {
-        //     window.location.href = `http://localhost:4200/pending-question;p1=${this.id};p2=${this.username};p3=${this.userType};`;
-        // }
-
-        this.questionService.deleteQuestion(questionId).subscribe();
+        let status = new StatusDTO();
+        status.status = "removed";
+        console.log(status);
+        console.log(questionId);
+        this.adminService.questionRemoval(status, questionId).subscribe();
         if(confirm(`Question id: ${questionId} has been removed`)) {
             window.location.href = `http://localhost:4200/pending-question;p1=${this.id};p2=${this.username};p3=${this.userType};`;
         }

@@ -54,12 +54,6 @@ public class QuestionController {
 //	public Optional<Question> getQuestionById(@RequestParam(name = "id") Integer id){
 //		return this.repo.findById(id);
 //	}
-	
-	/**
-	 * 
-	 * @param id
-	 * @return Question object that matches id
-	 */
 	@GetMapping("/getquestionbyid")
 	public Question getQuestionById(@RequestParam(name = "id") Integer id){
 		return this.repo.findById(id).get();
@@ -98,12 +92,6 @@ public class QuestionController {
 		return this.repo.save(toUpdate);
 	}
 	
-	/**
-	 * 
-	 * @param statusdto: the 
-	 * @param id: id of the question to be approved
-	 * @return Question object with updated status attribute. Sent to database as well.
-	 */
 	@PutMapping("/approve")
 	public Question changeStatus(@RequestBody StatusDTO statusdto, @RequestParam(name = "id") Integer id) {
 		Question toApprove = getQuestionById(id);
@@ -119,100 +107,51 @@ public class QuestionController {
 		return this.repo.save(toApprove);
 	}
 	
-	/**
-	 * 
-	 * @param id
-	 * @return Question object whose id field matches the http parameter
-	 */
-//	@DeleteMapping("/delete")
-//	public String deleteQuestionById(@RequestParam(name = "id") Integer id) {
-////		Optional<Question> toDelete = getQuestionById(id);
-////		repo.delete(toDelete.get());
-//		Question toDelete = getQuestionById(id);
-//		repo.delete(toDelete);
-//		return "Question succesfully deleted";
-//	}
-	
-	@DeleteMapping("/delete")
-	public void deleteQuestionById(@RequestParam(name = "id") Integer id) {
+	@DeleteMapping("/deletequestionbyid")
+	public String deleteQuestionById(@RequestParam(name = "id") Integer id) {
 //		Optional<Question> toDelete = getQuestionById(id);
 //		repo.delete(toDelete.get());
 		Question toDelete = getQuestionById(id);
 		repo.delete(toDelete);
-		//return "Question succesfully deleted";
+		return "Question succesfully deleted";
 	}
 	
-	/**
-	 * 
-	 * @return List of all questions in the database
-	 */
 	@GetMapping("/getallquestion")
 	public List<Question> getAllQuestion(){
 		return this.repo.findAll();
 	}
 	
-	/**
-	 * This method is probably no longer necessary after updates to the search method
-	 * 
-	 * @param topic
-	 * @return
-	 */
-//	@GetMapping("/bytopic")
-//	public List <Question> getQuesitonByTopic(@RequestParam(name = "topic") String topic){
-//		List<Question> qList = getAllQuestion();
-//		Iterator<Question> allQuestions = qList.iterator();
-//		
-//		List<Question> questionsByTopic = new ArrayList<Question>();
-//		while(allQuestions.hasNext()) {
-//			Question thisQuestion = allQuestions.next();
-//			
-//			if(thisQuestion.getTopic().equals(topic)) {
-//				questionsByTopic.add(thisQuestion);
-//			}
-//		}
-//		return questionsByTopic;
-//	}
+	@GetMapping("/getquestionbytopic")
+	public List <Question> getQuesitonByTopic(@RequestParam(name = "topic") String topic){
+		List<Question> qList = getAllQuestion();
+		Iterator<Question> allQuestions = qList.iterator();
+		
+		List<Question> questionsByTopic = new ArrayList<Question>();
+		while(allQuestions.hasNext()) {
+			Question thisQuestion = allQuestions.next();
+			
+			if(thisQuestion.getTopic().equals(topic)) {
+				questionsByTopic.add(thisQuestion);
+			}
+		}
+		return questionsByTopic;
+	}
 	
-	/**
-	 * 
-	 * @param search: a string input from user
-	 * @return searchResults: List of Questions objects where the "search" string is a substring of question.title
-	 */
 	@GetMapping("/search")
-	public List<Question> searchQuestion(@RequestParam(name = "search") String search, @RequestParam(name = "topic") String topic) {
+	public List<Question> searchQuestion(@RequestParam(name = "search") String search) {
 		List<Question> searchResults = new ArrayList<>();
 		Iterator<Question> allQuestions = getAllQuestion().iterator();
 		
 		while(allQuestions.hasNext()) {
 			Question thisQuestion = allQuestions.next();
 			
-			// IF the question is not yet approved, ignore it
-			if(thisQuestion.getStatus().equals("approved")) {
-				// If the question is approved check for the following conditions
-				
-				// If no topic is selected, check if the search string matches any substring in the question's title
-				if(topic.isEmpty()) {
-					//if(Constants.isSubstring(search, thisQuestion.getTitle())) {
-					if(thisQuestion.getTitle().toLowerCase().contains(search.toLowerCase())) {
-						searchResults.add(thisQuestion);
-					}
-				}
-				// If the search bar is blank, check if the input topic matches the topic of the question
-				else if(search.isBlank()) {
-					if(topic.equals(thisQuestion.getTopic())) {
-						searchResults.add(thisQuestion);
-					}
-				}
-				// If search AND topic are both being searched, make sure the question's respective attributes BOTH match
-				else if(thisQuestion.getTitle().toLowerCase().contains(search.toLowerCase()) && topic.equals(thisQuestion.getTopic())) {
-					searchResults.add(thisQuestion);
-				}
+			if(Constants.isSubstring(search, thisQuestion.getTitle())) {
+				searchResults.add(thisQuestion);
 			}
 		}
 		
 		return searchResults;
 	}
-	// End of search
 	
 	// No clue what this method is meant to do
 	// Functionality was not specified

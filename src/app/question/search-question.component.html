@@ -14,7 +14,7 @@
         <label for="topic"><strong>Search the question: </strong></label>
         <select name="topic" [(ngModel)]="selectedTopic" required>
             <option value="">--select an option--</option>
-            <option *ngFor="let question of questions" [value]="question.topic">{{question.topic}}</option>
+            <option *ngFor="let topic of topics" [value]="topic">{{topic}}</option>
         </select>
         <input type="search" name="searchQuestion" [(ngModel)]="searchQuestion" placeholder="Search Question?" required>
         <button class="search-button" type="submit">Search</button>

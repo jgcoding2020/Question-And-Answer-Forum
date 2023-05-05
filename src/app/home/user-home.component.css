@@ -74,24 +74,3 @@ td {
     border: solid black;
     padding: 10px;
 }
-
-button {
-    border: none;
-    font-size: 12px;
-}
-
-.div-create-answer-button {
-    display: flex;
-    justify-content: space-evenly;
-    width: 75%;
-    margin: auto;
-    margin-top:25px;
-}
-
-.show-answers-button {
-    padding: 10px;
-    border: solid black;
-    border-radius: 15px;
-    background-color: rgb(6, 247, 247);
-    color: black;
-}

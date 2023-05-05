@@ -28,6 +28,7 @@ export class AdminSignUpComponent implements OnInit {
 
     ngOnInit(): void {
         this.adminService.getAdmins().subscribe((data: Admin[])=>{
+            console.log(data);
             this.admins = data;
         })
     }
@@ -70,8 +71,7 @@ export class AdminSignUpComponent implements OnInit {
             console.log(this.currentAdmin);
 
             if (this.currentAdmin.id != 0 && this.currentAdmin.userType == "admin")
-                //this.router.navigate(['admin-home', {p1: this.currentAdmin.id, p2: this.currentAdmin.username, p3: this.currentAdmin.userType}])
-                this.router.navigate(['pending-question', {p1: this.currentAdmin.id, p2: this.currentAdmin.username, p3: this.currentAdmin.userType}])
+                this.router.navigate(['admin-home', {p1: this.currentAdmin.id, p2: this.currentAdmin.username, p3: this.currentAdmin.userType}])
             else {
                 alert("Username and password is invalid for an admin")
             }
