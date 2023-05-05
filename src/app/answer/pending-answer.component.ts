@@ -60,6 +60,11 @@ export class PendingAnswerComponent implements OnInit {
         if(confirm(`Answer id: ${answerId} has been removed`)) {
             window.location.href = `http://localhost:4200/pending-answer;p1=${this.id};p2=${this.username};p3=${this.userType};`;
         }
+
+        // this.answerService.deleteAnswer(answerId).subscribe();
+        // if(confirm(`Question id: ${answerId} has been removed`)) {
+        //     window.location.href = `http://localhost:4200/pending-answer;p1=${this.id};p2=${this.username};p3=${this.userType};`;
+        // }
     }
 
 
