@@ -213,12 +213,15 @@ public class QuestionController {
 				}
 				// If the search bar is blank, check if the input topic matches the topic of the question
 				else if(search.isBlank()) {
-					if(topic.equals(thisQuestion.getTopic())) {
+					if(topic.toLowerCase().equals(thisQuestion.getTopic().toLowerCase())) {
 						searchResults.add(thisQuestion);
 					}
 				}
 				// If search AND topic are both being searched, make sure the question's respective attributes BOTH match
-				else if(thisQuestion.getTitle().toLowerCase().contains(search.toLowerCase()) && topic.equals(thisQuestion.getTopic())) {
+				else if(
+						thisQuestion.getTitle().toLowerCase().contains(search.toLowerCase()) 
+						&& topic.toLowerCase().equals(thisQuestion.getTopic().toLowerCase())
+						) {
 					searchResults.add(thisQuestion);
 				}
 			}
