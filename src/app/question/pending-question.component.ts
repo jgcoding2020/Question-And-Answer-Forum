@@ -61,6 +61,10 @@ export class PendingQuestionComponent implements OnInit{
             window.location.href = `http://localhost:4200/pending-question;p1=${this.id};p2=${this.username};p3=${this.userType};`;
         }
 
+        // The currently used code only changes the status field of a Question
+        // It does not remove the Question from the database
+        // Thus, I highly suggest the use of this code
+        // -- Juan David
         // this.questionService.deleteQuestion(questionId).subscribe();
         // if(confirm(`Question id: ${questionId} has been removed`)) {
         //     window.location.href = `http://localhost:4200/pending-question;p1=${this.id};p2=${this.username};p3=${this.userType};`;

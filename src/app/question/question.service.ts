@@ -24,4 +24,12 @@ export class QuestionService{
     addQuestion(questionDTO: QuestionDTO):Observable<QuestionDTO> {
         return this.http.post<QuestionDTO>(this.baseUrl + "/addquestion", questionDTO);
     }
+
+    searchQuestion(search: String, topic: String):Observable<Question[]>{
+        return this.http.get<Question[]>(`${this.baseUrl}/search?search=${search}&topic=${topic}`);
+    }
+
+    deleteQuestion(id: number):Observable<Question>{
+        return this.http.delete<Question>(`${this.baseUrl}/delete?id=${id}`);
+    }
 }
