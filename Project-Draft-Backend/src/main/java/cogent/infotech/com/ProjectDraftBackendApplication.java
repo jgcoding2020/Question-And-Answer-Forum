@@ -45,9 +45,9 @@ public class ProjectDraftBackendApplication {
 	@PostConstruct
 	public void initUsers() {
 		List<User> fillerUsers = new ArrayList<>();
-		fillerUsers.add(new User("David", "davi123", "password", "david@gmail.com", "admin"));
-		fillerUsers.add(new User("Juan", "juan23", "password", "jd@gmail.com", "admin"));
-		fillerUsers.add(new User("Sara", "sar1t4" ,"password", "sarar@gmail.com", "admin"));
+		fillerUsers.add(new User("David", "davi123", "password", "capstone.ad657@gmail.com", "admin"));
+		fillerUsers.add(new User("Juan", "juan23", "password", "capstone.ad657@gmail.com", "admin"));
+		fillerUsers.add(new User("Sara", "sar1t4" ,"password", "capstone.ad657@gmail.com", "admin"));
 		fillerUsers.add(new User("Royce", "raaaa" ,"password", "ramalama@gmail.com", "user"));
 		fillerUsers.add(new User("Anudeep", "anuuuu" ,"password", "amunra@gmail.com", "user"));
 		fillerUsers.add(new User("Gyanendra", "arjuna227" ,"password", "parvati@gmail.com", "user"));
