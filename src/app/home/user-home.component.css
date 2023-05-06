@@ -74,3 +74,11 @@ td {
     border: solid black;
     padding: 10px;
 }
+
+.td-approved-question {
+    background-color: greenyellow;
+}
+
+.td-removed-question {
+    background-color: rgb(236, 129, 129);
+}

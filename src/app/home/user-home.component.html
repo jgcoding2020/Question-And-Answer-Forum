@@ -33,7 +33,9 @@
             </tr>
             <tr>
                 <td>Status</td>
-                <td>{{question.status}}</td>
+                <td *ngIf="question.status == 'pending for approval'">{{question.status}}</td>
+                <td class ="td-approved-question" *ngIf="question.status == 'approved'">{{question.status}} by admin {{question.qapproved_by}}</td>
+                <td class ="td-removed-question" *ngIf="question.status == 'removed'">{{question.status}} by admin {{question.qapproved_by}}</td>
             </tr>
         </tbody>
     </table>
