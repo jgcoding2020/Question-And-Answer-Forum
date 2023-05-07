@@ -22,7 +22,7 @@ import cogent.infotech.com.entities.Question;
 import cogent.infotech.com.repositories.AnswerRepository;
 import cogent.infotech.com.security.Constants;
 
-@CrossOrigin
+@CrossOrigin(Constants.ORIGINS)
 @RestController
 @RequestMapping(Constants.BASEURL + "/answer")
 public class AnswerController {

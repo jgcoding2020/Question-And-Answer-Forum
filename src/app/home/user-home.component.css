@@ -75,17 +75,12 @@ td {
     padding: 10px;
 }
 
-<<<<<<< HEAD
 .td-approved-question {
     background-color: greenyellow;
 }
 
 .td-removed-question {
     background-color: rgb(236, 129, 129);
-=======
-button {
-    border: none;
-    font-size: 12px;
 }
 
 .div-create-answer-button {
@@ -102,5 +97,4 @@ button {
     border-radius: 15px;
     background-color: rgb(6, 247, 247);
     color: black;
->>>>>>> dbcbd565ff124e4a3d2f1d6682009e617f7d8368
 }

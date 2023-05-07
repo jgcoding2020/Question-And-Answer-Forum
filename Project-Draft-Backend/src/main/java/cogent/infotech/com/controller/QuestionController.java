@@ -25,7 +25,7 @@ import cogent.infotech.com.repositories.QuestionRepository;
 import cogent.infotech.com.repositories.UserRepository;
 import cogent.infotech.com.security.Constants;
 
-@CrossOrigin
+@CrossOrigin(Constants.ORIGINS)
 @RestController
 @RequestMapping(Constants.BASEURL + "/questions")
 public class QuestionController {

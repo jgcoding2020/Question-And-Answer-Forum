@@ -52,20 +52,29 @@ public class ProjectDraftBackendApplication {
 		fillerUsers.add(new User("Anudeep", "anuuuu" ,"password", "amunra@gmail.com", "user"));
 		fillerUsers.add(new User("Gyanendra", "arjuna227" ,"password", "parvati@gmail.com", "user"));
 		fillerUsers.add(new User("Cecilia", "sancta27" ,"password", "inesa@gmail.com", "user"));
+		fillerUsers.add(new User("UserTest1", "1" ,"1", "user@gmail.com", "user"));
+		fillerUsers.add(new User("UserTest2", "2" ,"2", "user@gmail.com", "user"));
+		fillerUsers.add(new User("AdminTest", "3" ,"3", "admin@gmail.com", "admin"));
 		userRepo.saveAll(fillerUsers);
 		
 		
 		List<Question> fillerQuestions = new ArrayList<>();
 		fillerQuestions.add(new Question("Question Description", "../../assets/homepage.jpg", "Date time", "Topic", "Title", "sancta27"));
 		fillerQuestions.add(new Question("I've been stuck for a week trying to pass an authorization header from angular to Spring. Pls help!", 
-					"../../assets/beach.jpg", "Date time", "Technology", "How do HTTP headers work?", "raaaa"));
+					"../../assets/beach.jpg", "Date time", "technology", "How do HTTP headers work?", "raaaa"));
 		fillerQuestions.add(new Question("My gf and I left the fridge open yesterday. Is this a sign that our relationship is falling apart?",
-					"../../assets/drinks.JPG", "Date time", "Relationship", "Should I break up with my girlfriend?", "raaaa"));
+					"../../assets/drinks.JPG", "Date time", "relationships", "Should I break up with my girlfriend?", "raaaa"));
 		fillerQuestions.add(new Question("Please show your work. No calculators are allowed", 
-				"../../assets/flower.JPG", "Date time", "Math", "Can you prove that 1+1=2?", "juan23"));
+				"../../assets/flower.JPG", "Date time", "math", "Can you prove that 1+1=2?", "juan23"));
 		fillerQuestions.add(new Question("I do not understand user authentication with JWT. Plz explain like I'm 5.", 
-				"../../assets/lines.jpg", "Date time", "Technology", "What is JWT?", "dm_me_algorithms"));
-		fillerQuestions.add(new Question("Yes", "../../assets/math.png", "Date time", "Topic", "Is Arduino better than RaspberryPi?", "juan23"));
+				"../../assets/lines.jpg", "Date time", "technology", "What is JWT?", "dm_me_algorithms"));
+		fillerQuestions.add(new Question("Yes", "../../assets/math.png", "Date time", "topic", "Is Arduino better than RaspberryPi?", "juan23"));
+		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "server", "just a filler for testing", "1"));
+		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "gardening", "just a filler for testing", "1"));
+		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "databases", "just a filler for testing?", "1"));
+		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "server", "just a filler for testing", "2"));
+		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "gardening", "just a filler for testing", "2"));
+		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "databases", "just a filler for testing?", "2"));
 		questionRepo.saveAll(fillerQuestions);
 		
 		List<Answer> fillerAnswers = new ArrayList<>();
