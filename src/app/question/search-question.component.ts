@@ -64,13 +64,25 @@ export class SearchQuestionComponent implements OnInit{
         this.searchToggle = true;
         let count = 0;
         this.searchResult = [];
-        for (let i = 0; i < this.approvedQuestions.length; i++){
+        // for (let i = 0; i < this.approvedQuestions.length; i++){
             
-            if (this.approvedQuestions[i].topic.toLowerCase() == searchQuestionForm.value.topic.toLowerCase()){
-                this.searchResult[count] = this.approvedQuestions[i];
-                count++;
+        //     if (this.approvedQuestions[i].topic.toLowerCase() == searchQuestionForm.value.topic.toLowerCase()){
+        //         this.searchResult[count] = this.approvedQuestions[i];
+        //         count++;
+        //     }
+        // }   
+        
+        console.log("Search questions onSubmitSearch("+searchQuestionForm.value.searchQuestion+", "+searchQuestionForm.value.topic+")");
+        this.searchQuestions(this.searchQuestion, searchQuestionForm.value.topic);
+    }
+
+    searchQuestions(search: String, topic: String){
+        console.log("searchQuestions("+search+", "+topic+")");
+        this.questionService.searchQuestion(search, topic).subscribe(
+            (data: Question[])=>{
+                this.searchResult = data;
             }
-        }   
+        );
     }
 
     showAnswers(questionId: number){

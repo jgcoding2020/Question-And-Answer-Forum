@@ -27,8 +27,10 @@ export class PendingAnswerComponent implements OnInit {
         this.username = this.activatedRoute.snapshot.params['p2'];
         this.userType = this.activatedRoute.snapshot.params['p3'];
 
+        console.log("In init");
         let count = 0;
         this.answerService.getAnswers().subscribe((data: Answer[]) => {
+            console.log("In subscribe");
             console.log(data);
             
             for (let i = 0; i < data.length; i++){
@@ -61,6 +63,10 @@ export class PendingAnswerComponent implements OnInit {
             window.location.href = `http://localhost:4200/pending-answer;p1=${this.id};p2=${this.username};p3=${this.userType};`;
         }
 
+        // The currently used code only changes the status field of an Answer
+        // It does not remove the Answer from the database
+        // Thus, I highly suggest the use of this code
+        // -- Juan David
         // this.answerService.deleteAnswer(answerId).subscribe();
         // if(confirm(`Question id: ${answerId} has been removed`)) {
         //     window.location.href = `http://localhost:4200/pending-answer;p1=${this.id};p2=${this.username};p3=${this.userType};`;

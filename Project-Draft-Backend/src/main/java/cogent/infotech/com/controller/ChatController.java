@@ -19,7 +19,7 @@ import cogent.infotech.com.entities.Chat;
 import cogent.infotech.com.repositories.ChatRepository;
 import cogent.infotech.com.security.Constants;
 
-@CrossOrigin(Constants.ORIGINS)
+@CrossOrigin
 @RestController
 @RequestMapping(Constants.BASEURL + "/chat")
 public class ChatController {

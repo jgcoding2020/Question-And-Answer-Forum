@@ -22,7 +22,7 @@ import cogent.infotech.com.entities.User;
 import cogent.infotech.com.repositories.UserRepository;
 import cogent.infotech.com.security.Constants;
 
-@CrossOrigin(Constants.ORIGINS)
+@CrossOrigin
 @RestController
 @RequestMapping(Constants.BASEURL + "/user")
 public class UserController {

@@ -22,7 +22,7 @@ import cogent.infotech.com.entities.Question;
 import cogent.infotech.com.repositories.AnswerRepository;
 import cogent.infotech.com.security.Constants;
 
-@CrossOrigin(Constants.ORIGINS)
+@CrossOrigin
 @RestController
 @RequestMapping(Constants.BASEURL + "/answer")
 public class AnswerController {
@@ -98,10 +98,10 @@ public class AnswerController {
 	}
 	
 	@DeleteMapping("/delete")
-	public String deleteAnswerById(@RequestParam(name = "id")Integer id) {
+	public void deleteAnswerById(@RequestParam(name = "id")Integer id) {
 		Answer toDelete = getById(id);
 		repo.delete(toDelete);
-		return "";
+		//return "";
 	}
 	
 	@GetMapping("/question")
