@@ -41,14 +41,22 @@ h2 {
     width: 95%;
     margin: auto;
     margin-bottom: 50px;
+    flex-direction: row;
+}
+
+/* Responsive layout*/
+@media (max-width: 800px) {
+    .container {
+      flex-direction: column;
+    }
 }
 
 form {
     display: inline-block;
-}
-
-.login-admin-form {
-    margin-left: 10%;
+    width: 50%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 thead {
@@ -58,4 +66,16 @@ thead {
 th {
     font-size: x-large;
     text-align: center;
+}
+
+table {
+    background-color: aliceblue;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+input {
+    border: 2px solid black;
+    border-radius: 4px;
 }

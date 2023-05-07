@@ -99,6 +99,12 @@ export class ChatComponent implements OnInit{
         this.router.navigate(['user-to-user-chat', {p1: this.UserId, p2: this.username, p3: this.userType, p4:recipientUsername}]);
     }
 
+    // Your home button on click function uses router navigation user-home component with params set
+    // implemented by Joshua Gardner
+    goUserHome() {
+        this.router.navigate(['user-home', { p1: this.UserId, p2: this.username, p3: this.userType }]);
+    }
+
     // signout function changes user params to null and returns user to home page
     // implemented by Joshua Gardner
     goSignOut(){

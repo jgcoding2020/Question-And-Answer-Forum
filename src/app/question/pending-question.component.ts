@@ -104,6 +104,12 @@ export class PendingQuestionComponent implements OnInit{
         this.router.navigate(['pending-answer', { p1: this.id, p2: this.username, p3: this.userType }]);
     }
 
+    // Your home button on click function uses router navigation admin-home component with params set
+    // implemented by Joshua Gardner
+    goAdminHome() {
+        this.router.navigate(['admin-home', { p1: this.id, p2: this.username, p3: this.userType }]);
+    }
+    
     // sign out button on click function uses router navigation home component with params set to null
     // implemented by Joshua Gardner
     goSignOut(){

@@ -41,14 +41,22 @@ h2 {
     width: 95%;
     margin: auto;
     margin-bottom: 50px;
+    flex-direction: row;
+}
+
+/* Responsive layout */
+@media (max-width: 800px) {
+    .container {
+      flex-direction: column;
+    }
 }
 
 form {
     display: inline-block;
-}
-
-.login-user-form {
-    margin-left: 10%;
+    width: 50%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 thead {
@@ -59,67 +67,15 @@ th {
     font-size: x-large;
     text-align: center;
 }
-/* h3 {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    width: 90%;
-    margin:auto;
-    margin-top: 20px;
-    border: solid black 1px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: rgb(233, 232, 232);
-}
 
 table {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    width: 90%;
-    margin: auto;
-    border: solid black 1px;
-    border-top: none;
+    background-color: aliceblue;
+    border-radius: 15px;
     padding: 10px;
-    background-color: white;
-}
-
-td {
-    padding: 10px;
-}
-
-.user-list td {
-    text-align: center;
-    width: 15%;
-}
-
-span {
-    position: relative;
-    left: 10px;
-}
-
-body {
-    background-color: rgb(205, 202, 202);
+    box-shadow: 5px 10px 18px #888888;
 }
 
 input {
-    width: 80%;
-    margin: auto;
-    position: relative;
-    right: 40%;
-} 
-
-.register-user-button, .reset-button {
-    background-color: rgb(54, 54, 238);
-    border: none;
-    color: white;
-    padding: 10px;
+    border: 2px solid black;
     border-radius: 4px;
-    opacity: .7;
 }
-
-.register-user-button, .login-button {
-    margin-right: 20px; 
-}
-
-.reset-button {
-    background-color: rgb(198, 198, 94);
-} */
