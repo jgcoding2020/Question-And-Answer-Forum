@@ -1,9 +1,12 @@
+<!--nav bar and Admin Login Page h2 
+    implemented by Joshua Gardner-->
 <nav>
     <strong>Do Connect Admin</strong>
     <button class="home-button" [routerLink]="'/home'">Home</button>
 </nav>
 <h2>Admin Login Page</h2>
 <!--This is the application registration form for admin-->
+<!--implemented by Joshua Gardner-->
 <div class="container">
     <form class="register-admin-form" novalidate #registerAdminForm="ngForm"
         (ngSubmit)="onSubmitAdd(registerAdminForm)">
@@ -37,6 +40,7 @@
     </form>
 
     <!--This is the admin login form-->
+    <!--implemented by Joshua Gardner-->
     <form class="login-admin-form" novalidate #adminLoginForm="ngForm" (ngSubmit)="onSubmitLogin(adminLoginForm)">
         <table class="login-admin-table">
             <thead>

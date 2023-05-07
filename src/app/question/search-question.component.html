@@ -1,3 +1,5 @@
+<!--nav bar and Search Question h2 
+    implemented by Joshua Gardner-->
 <nav>
     <strong>DoConnect</strong>
     <button class="create-question-button" (click)="goCreateQuestion()">Create Question</button>
@@ -9,6 +11,8 @@
     </div>
 </nav>
 <h2>Search Question</h2>
+<!--Search question form
+    implemented by Joshua Gardner-->
 <div class="div-question-search">
     <form #searchQuestionForm="ngForm" (ngSubmit)="onSubmitSearch(searchQuestionForm)">
         <label for="topic"><strong>Search the question: </strong></label>
@@ -21,6 +25,9 @@
     </form>
 </div>
 
+<!--created questions shown by default all existing approved questions
+    this div appears only when no search is specified by ngIf directive. 
+    implemented by Joshua Gardner-->
 <div *ngIf="!searchToggle">
     <h2><span>Created Questions: {{approvedQuestions.length}}</span></h2>
     <div *ngFor="let question of approvedQuestions" class="div-created-question">
@@ -52,6 +59,10 @@
     </div>
 </div>
 
+<!--search results shown by all existing approved questions resulting 
+    within search form parameters. This div appears only when search form 
+    results are specified by ngIf directive.
+    implemented by Joshua Gardner-->
 <div *ngIf="searchToggle">
     <h2><span>Search Results: {{searchResult.length}}</span></h2>
     <div *ngFor="let question of searchResult" class="div-created-question">

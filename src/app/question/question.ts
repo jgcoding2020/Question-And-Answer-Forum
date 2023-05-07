@@ -1,3 +1,4 @@
+// Question class implemented by Joshua Gardner
 export class Question {
     id = 0;
     description_question = "";

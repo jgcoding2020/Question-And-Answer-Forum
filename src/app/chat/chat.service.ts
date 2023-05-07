@@ -6,14 +6,17 @@ import { Chat } from './chat';
 @Injectable({
     providedIn:'root'
 })
-export class ChatService{
-    private baseUrl = "http://localhost:8080/api/chat";
 
+// ChatService implemented by Juan David
+export class ChatService{
+
+    private baseUrl = "http://localhost:8080/api/chat";
 
     constructor(private http: HttpClient){
 
     }
 
+    
     addChat(recipientUser: String, chatMessage: String):Observable<Chat>{
         let newChat = {
             recipient: recipientUser,

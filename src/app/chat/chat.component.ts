@@ -9,6 +9,8 @@ import { UserService } from "../login/user.service";
     styleUrls: ['./chat.component.css']
 })
 
+// Base ChatComponent implemented by Joshua Gardner
+// ChatComponent functionality implemented by Juan David
 export class ChatComponent implements OnInit{
     
     UserId = 0;
@@ -64,14 +66,20 @@ export class ChatComponent implements OnInit{
 
     }
 
+    // router navigation applied to create question button with user params 
+    // implemented by Joshua Gardner
     goCreateQuestion(){
         this.router.navigate(['create-question', {p1: this.UserId, p2: this.username, p3: this.userType}]);
     }
 
+    // router navigation applied to search question button with user params 
+    // implemented by Joshua Gardner
     goSearchQuestion(){
         this.router.navigate(['search-question', {p1: this.UserId, p2: this.username, p3: this.userType}]);
     }
 
+    // router navigation applied to Chat button with user params
+    // implemented by Joshua Gardner
     goChat(){
         this.router.navigate(['chat', {p1: this.UserId, p2: this.username, p3: this.userType}]);
     }
@@ -83,6 +91,8 @@ export class ChatComponent implements OnInit{
         this.router.navigate(['user-to-user-chat', {p1: this.UserId, p2: this.username, p3: this.userType, p4:recipientUsername}]);
     }
 
+    // signout function changes user params to null and returns user to home page
+    // implemented by Joshua Gardner
     goSignOut(){
         alert("You have successfully logged out!");
         this.router.navigate(['home', {p1: null, p2: null, p3: null}]);

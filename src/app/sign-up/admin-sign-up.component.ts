@@ -10,16 +10,20 @@ import { Router } from "@angular/router";
     styleUrls: ['./admin-sign-up.component.css']
 })
 
-// AdminSignUpComponent for Admin account creation and login
+// AdminSignUpComponent provides functionaltiy for admin-sign-up templateUrl
 // implemented by Joshua Gardner
 export class AdminSignUpComponent implements OnInit {
     
+    // class variables for services and html forms
+    // implemented by Joshua Gardner 
     admins: Admin[];
     currentAdmin: Admin;
     currentAdminId: number;
     registerForm: Admin;
     loginForm: Login;
 
+    // class constructor
+    // implemented by Joshua Gardner 
     constructor(private router: Router, private adminService: AdminService){
         this.admins = [];
         this.currentAdmin = new Admin();
@@ -28,6 +32,8 @@ export class AdminSignUpComponent implements OnInit {
         this.loginForm = new Login();
     }
 
+    // gets list of users from database
+    // implemented by Joshua Gardner
     ngOnInit(): void {
         this.adminService.getAdmins().subscribe((data: Admin[])=>{
             console.log(data);
