@@ -10,9 +10,12 @@ import { UserService } from "../login/user.service";
 })
 
 // Base ChatComponent implemented by Joshua Gardner
-// ChatComponent functionality implemented by Juan David
+// ChatComponent chat functionality implemented by Juan David
 export class ChatComponent implements OnInit{
     
+    // class variables for router params
+    // implemented by Joshua Gardner
+    // additions made by Juan David 
     UserId = 0;
     username = "";
     userType = "";
@@ -20,6 +23,9 @@ export class ChatComponent implements OnInit{
     users: User[];
     trueUsers: User[]
     
+    // class constructor
+    // implemented by Joshua Gardner
+    // modified by Juan David
     constructor(private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService){
         this.user = new User();
         this.users = [];
@@ -27,6 +33,8 @@ export class ChatComponent implements OnInit{
     }
 
     ngOnInit(): void {
+        // assigns params to class variables
+        // implemented by Joshua Gardner 
         this.UserId = this.activatedRoute.snapshot.params['p1'];
         this.username = this.activatedRoute.snapshot.params['p2'];
         this.userType = this.activatedRoute.snapshot.params['p3'];

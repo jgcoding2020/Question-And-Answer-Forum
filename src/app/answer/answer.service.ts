@@ -9,6 +9,8 @@ import { Answer } from './answer'
     providedIn: 'root'
 })
 
+// AnswerService class 
+// implemented by Joshua Gardner
 export class AnswerService {
 
     // base url to answer REST API

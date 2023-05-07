@@ -6,13 +6,17 @@ import { Answer } from "./answer";
 import { AnswerService } from "./answer.service";
 
 @Component({
-    selector: 'created-answer',
+    selector: 'create-answer',
     templateUrl: './create-answer.component.html',
     styleUrls: ['./create-answer.component.css']
 })
 
+// CreateAnswerComponent provides functionality for create-answer template
+// implemented by Joshua Gardner 
 export class CreateAnswerComponent implements OnInit{
     
+    // class variables for router params
+    // implemented by Joshua Gardner
     UserId = 0;
     username = "";
     userType = "";
@@ -20,17 +24,23 @@ export class CreateAnswerComponent implements OnInit{
     answer: Answer;
     questionToAnswer: Question;
     
+    // class constructor
+    // implemented by Joshua Gardner
     constructor(private answerService: AnswerService, private questionService: QuestionService, private router: Router, private activatedRoute: ActivatedRoute){
         this.questionToAnswer = new Question();
         this.answer = new Answer();
     }
 
     ngOnInit(): void {
+        // assigns params to class variables
+        // implemented by Joshua Gardner 
         this.UserId = this.activatedRoute.snapshot.params['p1'];
         this.username = this.activatedRoute.snapshot.params['p2'];
         this.userType = this.activatedRoute.snapshot.params['p3'];
         this.questionId = this.activatedRoute.snapshot.params['p4'];
 
+        // assigns questionToAnswer class variable question that is being answered
+        // implemented by Joshua Gardner
         this.questionService.getQuestions().subscribe((data: Question[]) => {
             console.log(data);
             for (let i = 0; i < data.length; i++){
@@ -49,6 +59,8 @@ export class CreateAnswerComponent implements OnInit{
         })
     }
 
+    // click function adds answer to question to database
+    // implemented by Joshua Gardner
     onSubmitAnswer(answerQuestionForm: any){
         this.answer.datetime = "" + new Date();
         this.answer.description_answer = answerQuestionForm.value.description_answer;
@@ -64,18 +76,26 @@ export class CreateAnswerComponent implements OnInit{
         }
     }
 
+    // create question button on click function uses router navigation create-question component with params set
+    // implemented by Joshua Gardner
     goCreateQuestion(){
         this.router.navigate(['create-question', {p1: this.UserId, p2: this.username, p3: this.userType}]);
     }
 
+    // search question button on click function uses router navigation search-question component with params set
+    // implemented by Joshua Gardner
     goSearchQuestion(){
         this.router.navigate(['search-question', {p1: this.UserId, p2: this.username, p3: this.userType}]);
     }
 
+    // chat button on click function uses router navigation chat component with params set
+    // implemented by Joshua Gardner
     goChat(){
         this.router.navigate(['chat', {p1: this.UserId, p2: this.username, p3: this.userType}]);
     }
 
+    // sign out button on click function uses router navigation home component with params set to null
+    // implemented by Joshua Gardner
     goSignOut(){
         alert("You have succefully logged out");
         this.router.navigate(['home', {p1: null, p2: null, p3: null}]);
