@@ -212,7 +212,7 @@ public class QuestionController {
 					}
 				}
 				// If the search bar is blank, check if the input topic matches the topic of the question
-				else if(search.isBlank()) {
+				else if(search.isEmpty()) {
 					if(topic.toLowerCase().equals(thisQuestion.getTopic().toLowerCase())) {
 						searchResults.add(thisQuestion);
 					}

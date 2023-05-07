@@ -22,6 +22,8 @@ import { ChatComponent } from './chat/chat.component';
 import { UserToUserChatComponent } from './chat/user-to-user-chat.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 
+// Additions to base app.module.ts made by Joshua Gardner
+
 @NgModule({
   declarations: [
     AppComponent, HomeComponent, UserHomeComponent, AdminHomeComponent,

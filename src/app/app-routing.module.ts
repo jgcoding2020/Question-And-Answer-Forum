@@ -18,6 +18,9 @@ import { ChatComponent } from './chat/chat.component';
 import { UserToUserChatComponent } from './chat/user-to-user-chat.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 
+/* router paths throughout application
+implimented by Joshua Gardner */
+
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
@@ -37,6 +40,10 @@ const routes: Routes = [
   {path: 'user-to-user-chat', component: UserToUserChatComponent},
   {path: '**', component: NoPageFoundComponent},
     
+  /* Playing with concept of utilizing parent/ children routing 
+  Joshua Gardner 
+  */
+
   /* {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, 
     children: [

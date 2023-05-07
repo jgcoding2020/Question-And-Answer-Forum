@@ -1,3 +1,4 @@
+// Admin class implemented by Joshua Gardner
 export class Admin {
     
     id: number = 0;
