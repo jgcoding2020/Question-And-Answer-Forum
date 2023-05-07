@@ -70,11 +70,11 @@ public class ProjectDraftBackendApplication {
 				"../../assets/lines.jpg", "Date time", "technology", "What is JWT?", "dm_me_algorithms"));
 		fillerQuestions.add(new Question("Yes", "../../assets/math.png", "Date time", "topic", "Is Arduino better than RaspberryPi?", "juan23"));
 		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "server", "just a filler for testing", "1"));
-		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "gardening", "just a filler for testing", "1"));
-		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "databases", "just a filler for testing?", "1"));
-		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "server", "just a filler for testing", "2"));
-		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "gardening", "just a filler for testing", "2"));
-		fillerQuestions.add(new Question("for testing", "../../assets/math.png", "Date time", "databases", "just a filler for testing?", "2"));
+		fillerQuestions.add(new Question("for testing", "../../assets/drinks.JPG", "Date time", "gardening", "just a filler for testing", "1"));
+		fillerQuestions.add(new Question("for testing", "../../assets/flower.JPG", "Date time", "databases", "just a filler for testing?", "1"));
+		fillerQuestions.add(new Question("for testing", "../../assets/headshot.jpeg", "Date time", "server", "just a filler for testing", "2"));
+		fillerQuestions.add(new Question("for testing", "../../assets/lines.jpg", "Date time", "gardening", "just a filler for testing", "2"));
+		fillerQuestions.add(new Question("for testing", "../../assets/wow.png", "Date time", "databases", "just a filler for testing?", "2"));
 		questionRepo.saveAll(fillerQuestions);
 		
 		List<Answer> fillerAnswers = new ArrayList<>();
