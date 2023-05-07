@@ -36,7 +36,7 @@ export class PendingQuestionComponent implements OnInit{
         this.userType = this.activatedRoute.snapshot.params['p3'];
         
         let count = 0;
-        // creates list of all questions from database on search page
+        // creates list of all questions from database
         // implemented by Joshua Gardner
         this.questionService.getQuestions().subscribe((data: Question[]) => {
             console.log(data);

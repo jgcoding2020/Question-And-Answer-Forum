@@ -1,3 +1,5 @@
+// User class
+// implemented by Joshua Gardner
 export class User {
     
     id: number = 0;

@@ -1,5 +1,7 @@
 import { Question } from "../question/question";
 
+// Answer class
+// implemented by Joshua Gardner
 export class Answer {
     id = 0;
     approved_by = "";
