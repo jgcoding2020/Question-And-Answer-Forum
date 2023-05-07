@@ -49,7 +49,7 @@ public class ChatController {
 	// -- Juan David
 	@GetMapping("/mychats")
 	public List<Chat> getChatAsSender(@RequestParam (name = "recipient_username") String chatRecipient){
-		Iterator allChats = getAllChats().iterator();
+		Iterator<Chat> allChats = getAllChats().iterator();
 		List<Chat> senderChats = new ArrayList<>();
 		while(allChats.hasNext()) {
 			Chat thisChat = (Chat)allChats.next();
@@ -70,7 +70,7 @@ public class ChatController {
 	// -- Juan David
 	@GetMapping("/theirchats")
 	public List<Chat> getChatAsReceiver(@RequestParam (name = "recipient_username") String chatRecipient){
-		Iterator allChats = getAllChats().iterator();
+		Iterator<Chat> allChats = getAllChats().iterator();
 		List<Chat> receiverChats = new ArrayList<>();
 		while(allChats.hasNext()) {
 			Chat thisChat = (Chat)allChats.next();
@@ -83,7 +83,6 @@ public class ChatController {
 		
 		return receiverChats;
 	}
-	
 	
 	
 }

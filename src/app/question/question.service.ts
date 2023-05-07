@@ -25,13 +25,13 @@ export class QuestionService{
     // gets list of all questions from database
     // implemented by Joshua Gardner
     getQuestions():Observable<Question[]> {
-        return this.http.get<Question[]>(`${this.baseUrl}` + "/getallquestion");
+        return this.http.get<Question[]>(`${this.baseUrl}` + "/all");
     }
 
     // adds question to database
     // implemented by Joshua Gardner
     addQuestion(questionDTO: QuestionDTO):Observable<QuestionDTO> {
-        return this.http.post<QuestionDTO>(this.baseUrl + "/addquestion", questionDTO);
+        return this.http.post<QuestionDTO>(this.baseUrl + "/add", questionDTO);
     }
 
     // searches database for questions
@@ -43,5 +43,9 @@ export class QuestionService{
     // implemented by Joshua Gardner
     deleteQuestion(id: number):Observable<Question>{
         return this.http.delete<Question>(`${this.baseUrl}/delete?id=${id}`);
+    }
+
+    updateQuestion(id: number, quesitondto: QuestionDTO):Observable<Question>{
+        return this.http.put<Question>(`${this.baseUrl}/update?id=${id}`, quesitondto);
     }
 }

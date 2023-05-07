@@ -19,7 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 import cogent.infotech.com.dto.StatusDTO;
 import cogent.infotech.com.entities.Answer;
 import cogent.infotech.com.entities.Question;
+import cogent.infotech.com.entities.User;
+import cogent.infotech.com.mail.MailFunctions;
 import cogent.infotech.com.repositories.AnswerRepository;
+import cogent.infotech.com.repositories.UserRepository;
 import cogent.infotech.com.security.Constants;
 
 @CrossOrigin(Constants.ORIGINS)
@@ -28,11 +31,8 @@ import cogent.infotech.com.security.Constants;
 public class AnswerController {
 	@Autowired
 	private AnswerRepository repo;
-	
-	@PostMapping("/void")
-	public void addVoid(@RequestBody Answer answer) {
-		this.repo.save(answer);
-	}
+	@Autowired
+	private UserRepository uRepo;
 	
 	@GetMapping("/all")
 	public List<Answer> getAllAnswers(){
@@ -42,6 +42,13 @@ public class AnswerController {
 	@PostMapping("/add")
 	public Answer addAnswer(@RequestBody Answer answer) {
 		answer.setImg_src(answer.getImg_src().replace("C:\\fakepath\\", "../../assets/"));
+		
+		Iterator<User> adminUsers = uRepo.findAllByUserType("admin").iterator();
+		while(adminUsers.hasNext()) {
+			User current = adminUsers.next();
+			MailFunctions.aCreationNotif(current.getEmail(), answer);
+		}
+		
 		return this.repo.save(answer);
 	}
 	
@@ -65,7 +72,7 @@ public class AnswerController {
 		return this.repo.save(toApprove);
 	}
 	
-	@PutMapping("/put")
+	@PutMapping("/update")
 	public Answer updateAnswer(@RequestBody Answer updates, @RequestParam(name = "id") Integer id) {
 		Answer updated = getById(id);
 		
@@ -75,15 +82,9 @@ public class AnswerController {
 		if(updates.getDescription_answer() != null) {
 			updated.setDescription_answer(updates.getDescription_answer());
 		}
-		if(updates.getStatus() != null) {
-			updated.setStatus(updates.getStatus());
-		}
 //		if(updates.getQuestion() != null) {
 //			updated.setQuestion(updates.getQuestion());
 //		}
-		if(updates.getApproved_by() != null) {
-			updated.setApproved_by(updates.getApproved_by());
-		}
 		if(updates.getCreated_by() != null) {
 			updated.setCreated_by(updates.getCreated_by());
 		}
@@ -101,7 +102,6 @@ public class AnswerController {
 	public void deleteAnswerById(@RequestParam(name = "id")Integer id) {
 		Answer toDelete = getById(id);
 		repo.delete(toDelete);
-		//return "";
 	}
 	
 	@GetMapping("/question")

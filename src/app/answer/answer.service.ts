@@ -40,4 +40,8 @@ export class AnswerService {
     deleteAnswer(answerId: number): Observable<Answer>{
         return this.http.delete<Answer>(`${this.baseUrl}/delete?id=${answerId}`);
     }
+
+    updateAnswer(updates: Answer, id: number): Observable<Answer>{
+        return this.http.put<Answer>(`${this.baseUrl}/update?id=${id}`, updates);
+    }
 }

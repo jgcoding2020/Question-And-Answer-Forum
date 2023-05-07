@@ -48,7 +48,7 @@ public class QuestionController {
 	 *  		)
 	 *  )
 	 *  */
-	@PostMapping("/addquestion")
+	@PostMapping("/add")
 	public Question addQuestion(@RequestBody QuestionDTO q) {
 		Question newQuestion = new Question(q.getDescription_question(), q.getImage_src(), q.getDatetime(), q.getTopic(), q.getTitle(), Constants.session.getUsername());
 		newQuestion.setImage_src(newQuestion.getImage_src().replace("C:\\fakepath\\", "../../assets/"));
@@ -63,23 +63,17 @@ public class QuestionController {
 		return this.repo.save(newQuestion);
 	}
 	
-	
-//	@GetMapping("/getquestionbyid")
-//	public Optional<Question> getQuestionById(@RequestParam(name = "id") Integer id){
-//		return this.repo.findById(id);
-//	}
-	
 	/**
 	 * 
 	 * @param id
 	 * @return Question object that matches id
 	 */
-	@GetMapping("/getquestionbyid")
+	@GetMapping("/get")
 	public Question getQuestionById(@RequestParam(name = "id") Integer id){
 		return this.repo.findById(id).get();
 	}
 	
-	@PutMapping("/updatequestion")
+	@PutMapping("/update")
 	public Question updateQuestion(@RequestBody QuestionDTO updates, @RequestParam(name = "id") Integer id) {
 //		Optional <Question> toUpdate = getQuestionById(id);
 //		Question updated = toUpdate.get();
@@ -133,60 +127,22 @@ public class QuestionController {
 		return this.repo.save(toApprove);
 	}
 	
-	/**
-	 * 
-	 * @param id
-	 * @return Question object whose id field matches the http parameter
-	 */
-//	@DeleteMapping("/delete")
-//	public String deleteQuestionById(@RequestParam(name = "id") Integer id) {
-////		Optional<Question> toDelete = getQuestionById(id);
-////		repo.delete(toDelete.get());
-//		Question toDelete = getQuestionById(id);
-//		repo.delete(toDelete);
-//		return "Question succesfully deleted";
-//	}
-	
 	@DeleteMapping("/delete")
 	public void deleteQuestionById(@RequestParam(name = "id") Integer id) {
-//		Optional<Question> toDelete = getQuestionById(id);
-//		repo.delete(toDelete.get());
 		Question toDelete = getQuestionById(id);
 		repo.delete(toDelete);
-		//return "Question succesfully deleted";
 	}
 	
 	/**
 	 * 
 	 * @return List of all questions in the database
 	 */
-	@GetMapping("/getallquestion")
+	@GetMapping("/all")
 	public List<Question> getAllQuestion(){
 		return this.repo.findAll();
 	}
 	
-	/**
-	 * This method is probably no longer necessary after updates to the search method
-	 * 
-	 * @param topic
-	 * @return
-	 */
-//	@GetMapping("/bytopic")
-//	public List <Question> getQuesitonByTopic(@RequestParam(name = "topic") String topic){
-//		List<Question> qList = getAllQuestion();
-//		Iterator<Question> allQuestions = qList.iterator();
-//		
-//		List<Question> questionsByTopic = new ArrayList<Question>();
-//		while(allQuestions.hasNext()) {
-//			Question thisQuestion = allQuestions.next();
-//			
-//			if(thisQuestion.getTopic().equals(topic)) {
-//				questionsByTopic.add(thisQuestion);
-//			}
-//		}
-//		return questionsByTopic;
-//	}
-	
+
 	/**
 	 * 
 	 * @param search: a string input from user
@@ -230,12 +186,4 @@ public class QuestionController {
 		return searchResults;
 	}
 	// End of search
-	
-	// No clue what this method is meant to do
-	// Functionality was not specified
-	// -- Juan David
-	@GetMapping("/getallquestionfalse")
-	public void getAllQuestionFalse() {
-		
-	}
 }

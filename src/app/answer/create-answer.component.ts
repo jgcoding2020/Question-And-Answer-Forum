@@ -65,6 +65,7 @@ export class CreateAnswerComponent implements OnInit{
         this.answer.datetime = "" + new Date();
         this.answer.description_answer = answerQuestionForm.value.description_answer;
         this.answer.img_src = "" + answerQuestionForm.value.img_src;
+        this.answer.created_by = this.username;
         this.answer.question = this.questionToAnswer;
         console.log(this.answer);
         console.log(this.answer.img_src);

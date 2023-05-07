@@ -1,7 +1,6 @@
 package cogent.infotech.com.mail;
 
 import java.io.UnsupportedEncodingException;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Properties;
 
@@ -15,6 +14,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import cogent.infotech.com.entities.Answer;
 import cogent.infotech.com.entities.Question;
 
 
@@ -27,7 +27,10 @@ public class MailFunctions {
 		//String senderEmailPassword = "kdpv4Hv7PEP53LF";
 		String senderEmailPassword = "jjsrgnmkrrclsvuu";
 		String subject = "Question Creation Notification: Admin Action Required";
-		String body = "A new question has been created. Please review.";
+		String body = "A new question has been created. Please review."
+				+"\nID:" + newQuestion.getId() 
+				+"\nTitle: "+newQuestion.getTitle()
+				+"\nCreated On: "+newQuestion.getDatetime();
 
 		sendFromGmail(senderEmail, senderEmailPassword, recipientEmail, subject, body);
 	}
@@ -35,8 +38,17 @@ public class MailFunctions {
 	/**
 	 * Sends email to admin when an answer has been created
 	 */
-	public static void aCreationNotif() {
-		
+	public static void aCreationNotif(String recipientEmail, Answer newAnswer) {
+		String senderEmail = "cogent65group7@gmail.com";
+		//String senderEmailPassword = "kdpv4Hv7PEP53LF";
+		String senderEmailPassword = "jjsrgnmkrrclsvuu";
+		String subject = "Question Answered Notification: Admin Action Required";
+		String body = "A question has been answered recently. Please review."
+				+"\nQuestion ID:" + newAnswer.getQuestion().getId() 
+				+"\nQuestion Title: "+newAnswer.getQuestion().getTitle()
+				+"\nAnswered On: "+newAnswer.getDatetime();
+
+		sendFromGmail(senderEmail, senderEmailPassword, recipientEmail, subject, body);
 	}
 	
 	public static void sendFromGmail(String senderEmail, String senderPassword, String recipientEmail, String subject, String body) {
@@ -77,12 +89,13 @@ public class MailFunctions {
 			//Transport.send(message);
 			transport.close();
 			
+		} catch(AddressException ae) {
+			ae.printStackTrace();
 		} catch(MessagingException me) {
 			me.printStackTrace();
 		} catch(UnsupportedEncodingException ue) {
 			ue.printStackTrace();
 		}
-		
 		
 	}
 }
