@@ -1,3 +1,5 @@
+<!--nav bar and User Home h2 
+    implemented by Joshua Gardner-->
 <nav>
     <strong>DoConnect</strong>
     <button class="create-question-button" (click)="goCreateQuestion()">Create Question</button>
@@ -10,6 +12,8 @@
 </nav>
 <h1>User Home</h1>
 
+<!--displays list of questions created by user along with their status
+implemented by Joshua Gardner-->
 <h2><span>Your Created Questions: {{userQuestions.length}}</span></h2>
 <div *ngFor="let question of userQuestions" class="div-created-question">
     <img class="div-image" src={{question.image_src}} alt="Image not available">

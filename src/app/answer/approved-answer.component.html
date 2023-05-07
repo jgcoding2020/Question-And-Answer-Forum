@@ -1,3 +1,5 @@
+<!--nav bar and Approved Answers To Question h2 
+    implemented by Joshua Gardner-->
 <nav>
     <strong>DoConnect</strong>
     <button class="create-question-button" (click)="goCreateQuestion()">Create Question</button>
@@ -10,6 +12,8 @@
 </nav>
 <h2>Approved Answers To Question: {{questionToAnswer.id}}</h2>
 
+<!--displays question being answered
+implemented by Joshua Gardner-->
 <div class="div-created-question">
     <img class="div-image" src={{questionToAnswer.image_src}} alt="Image not available">
     <table class="created-question-table">
@@ -34,6 +38,8 @@
     </table>
 </div>
 
+<!--displays approved answers to selected question
+implemented by Joshua Gardner-->
 <h2>Answers: {{approvedAnswers.length}}</h2>
 <div *ngFor="let answer of approvedAnswers" class="div-created-question">
     <img class="div-image" src={{answer.img_src}} alt="Image not available">

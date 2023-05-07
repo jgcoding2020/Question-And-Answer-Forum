@@ -1,3 +1,5 @@
+<!--nav bar and Question To Answer h2 
+    implemented by Joshua Gardner-->
 <nav>
     <strong>DoConnect</strong>
     <button class="create-question-button" (click)="goCreateQuestion()">Create Question</button>
@@ -9,6 +11,8 @@
     </div>
 </nav>
 
+<!--displays question selected by user to answer
+implemented by Joshua Gardner-->
 <h2>Question to Answer</h2>
 <div  class="div-created-question">
     <img class="div-image" src={{questionToAnswer.image_src}} alt="Image not available">
@@ -34,6 +38,8 @@
     </table>
 </div>
 
+<!--Form that users create answer to chosen question through
+implemented by Joshua Gardner-->
 <h2>Create Answer</h2>
 <div class="div-create-answer">
     <form class="answer-form" #AnswerQuestionForm="ngForm" (ngSubmit)="onSubmitAnswer(AnswerQuestionForm)">

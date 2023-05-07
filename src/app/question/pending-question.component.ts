@@ -36,7 +36,7 @@ export class PendingQuestionComponent implements OnInit{
         this.userType = this.activatedRoute.snapshot.params['p3'];
         
         let count = 0;
-        // lists all questions from database on search page
+        // creates list of all questions from database on search page
         // implemented by Joshua Gardner
         this.questionService.getQuestions().subscribe((data: Question[]) => {
             console.log(data);
@@ -92,7 +92,7 @@ export class PendingQuestionComponent implements OnInit{
         // }
     }
 
-    // pending-question on click function uses router navigation to pending-question component with params set
+    // pending question button on click function uses router navigation to pending-question component with params set
     // implemented by Joshua Gardner
     goPendingQuestion(){
         this.router.navigate(['pending-question', { p1: this.id, p2: this.username, p3: this.userType }]);

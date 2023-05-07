@@ -1,3 +1,5 @@
+<!--nav bar and Create New Question h2 
+    implemented by Joshua Gardner-->
 <nav>
     <strong>DoConnect</strong>
     <button class="create-question-button" (click)="goCreateQuestion()">Create Question</button>
@@ -9,6 +11,8 @@
     </div>
 </nav>
 <h2>Create New Question</h2>
+<!--Create question form for users to create new questions requiring approval by admin-->
+<!--implemented by Joshua Gardner-->
 <div class="div-create-question">
 <form novalidate #createQuestionForm="ngForm" (ngSubmit)="onSubmitCreateQuestion(createQuestionForm)">
     <table>

@@ -1,3 +1,5 @@
+<!--nav bar and Pending Answerss h2 
+    implemented by Joshua Gardner-->
 <nav>
     <strong>DoConnect</strong>
     <button class="pending-question-button" (click)="goPendingQuestion()">Pending Question</button>
@@ -8,6 +10,9 @@
     </div>
 </nav>
 <h2>Pending Answers: {{pendingAnswers.length}}</h2>
+
+<!--displays list of answers with "Pending approval" status for admin review
+    implemented by Joshua Gardner-->
 <div *ngFor="let answer of pendingAnswers" class="div-pending-answers">
     <img class="div-image" src={{answer.img_src}} alt="Image not available at source location">
     <table class="created-answer-table">

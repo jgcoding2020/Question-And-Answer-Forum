@@ -1,9 +1,12 @@
+<!--nav bar and User Login Page h2 
+    implemented by Joshua Gardner-->
 <nav>
     <strong>Do Connect User</strong>
     <button class="home-button" [routerLink]="'/home'">Home</button>
 </nav>
 <h2>User Login Page</h2>
-<!--This is the application registration form for users-->
+<!--application registration form for users
+    implemented by Joshua Gardner-->
 <div class="container">
     <form novalidate #registerUserForm="ngForm" (ngSubmit)="onSubmitAdd(registerUserForm)">
         <table class="register-user-table">
@@ -35,7 +38,8 @@
         </table>
     </form>
 
-    <!--This is the user login form-->
+    <!--User login form
+    implemented by Joshua Gardner-->
     <form class="login-user-form" novalidate #userLoginForm="ngForm" (ngSubmit)="onSubmitLogin(userLoginForm)">
         <table class="login-user-table">
             <thead>
