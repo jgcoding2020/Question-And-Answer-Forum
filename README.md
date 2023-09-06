@@ -9,4 +9,4 @@ incorporates direct messaging functionality, enabling users to engage in private
 Once the application was developed and tested locally, it was deployed on the web using Amazon Web Services 
 infrastructure, including the following components: AWS S3, AWS EC2, AWS RDS.
 
-Tools Used: Angular 15,Java Spring Boot Rest API, MySQL relational database
+Tools Used: Angular 15, Java Spring Boot Rest API, MySQL relational database
